@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="dokumen/logo-modified.png">
+    <!-- link -->
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- alpine -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Headroom.js -->
+    <script src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode with class
+        }
+    </script>
+    <style>
+        #navbar {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+    <title>Profil | Properti Radja Syariah</title>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- NAVBAR -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white-900/80 backdrop-blur-md transition-all duration-300 shadow-lg py-3">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 transition-all duration-300" id="navbar-inner">
+    <!-- Logo -->
+    <div class="flex items-center space-x-3 cursor-pointer">
+        <a href="index.html" class="flex items-center space-x-3">
+            <img src="dokumen/logo icon.png" alt="Logo Radja Syariah"
+            class="h-12 w-15 rounded-full bg-white p-1 shadow object-cover transition-transform duration-300 hover:scale-105"
+            id="logo">
+            <span class="font-extrabold text-2xl tracking-wide leading-tight select-none text-white">
+            <span style="color: #4CAF50;">Radja Syariah</span>
+            </span>
+        </a>
+        </div>
+
+        <!-- Menu Desktop -->
+        <nav class="space-x-6 hidden md:flex font-medium text-dark">
+        <a href="index.html" class="hover:text-green-400 transition">Home</a>
+        <a href="profil.html" class="hover:text-green-400 transition">Profil</a>
+        <a href="perumahan.html" class="hover:text-green-400 transition">Perumahan Syariah</a>
+        <a href="artikel.html" class="hover:text-green-400 transition">Artikel</a>
+        <a href="contact.html" class="hover:text-green-400 transition">Contact</a>
+        </nav>
+
+        <!-- Right: Search + Hamburger -->
+        <div class="flex items-center space-x-4">
+            <!-- Search Box -->
+            <form action="perumahan.html" method="GET" class="relative hidden md:block">
+                <input type="text" name="search" placeholder="Search..."
+                    class="pl-10 pr-4 py-1.5 rounded-full bg-gray-100 text-gray-900 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-sm placeholder-gray-500" />
+                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+            </form>
+
+            <!-- Hamburger -->
+            <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white-900 text-dark px-4 pb-4 font-medium">
+        <a href="index.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Home</a>
+        <a href="profil.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Profil</a>
+        <a href="perumahan.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Perumahan Syariah</a>
+        <a href="artikel.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Artikel</a>
+        <a href="contact.html" class="block py-2 hover:text-green-400">Contact</a>
+    </div>
+    </header>
+
+    <!-- Hero Section Profil -->
+    <section class="bg-gradient-to-br from-green-100 to-white pt-52 pb-24 text-center relative overflow-hidden" data-aos="fade-in">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/symphony.png')] opacity-5"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 sm:px-8">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-green-800 mb-4 drop-shadow">
+                Tentang Kami
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
+                Mengenal lebih dekat Pondok Radja Syariah, hunian Islami tanpa riba yang menjunjung tinggi prinsip syariah berdasarkan Al-Qur’an dan Sunnah.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sejarah & Visi Misi -->
+    <section class="bg-white py-8 md:py-12 lg:py-16" data-aos="fade-in">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- Sejarah -->
+            <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-green-700 mb-4">Sejarah Kami</h2>
+                <p class="text-sm sm:text-base text-gray-700 text-justify leading-relaxed">
+                    Pondok Radja Syariah berdiri sebagai bentuk ikhtiar menghadirkan solusi tempat tinggal tanpa riba, dimulai dari komunitas kecil yang bertekad menjalani hidup sesuai syariat. Dari semangat tersebut, terbentuklah hunian Islami yang aman, nyaman, dan penuh keberkahan.
+                </p>
+            </div>
+            <!-- Visi Misi -->
+            <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-green-700 mb-4">Visi & Misi</h2>
+                <ul class="space-y-3 text-sm sm:text-base text-gray-700">
+                    <li class="flex items-start gap-2">
+                        <span class="text-green-600 mt-1">✔</span>
+                        <span><strong>Visi:</strong> Menjadi pelopor hunian Islami yang memberkahi kehidupan umat.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-green-600 mt-1">✔</span>
+                        <span><strong>Misi:</strong> Menghadirkan properti tanpa riba, nyaman, dan sesuai syariah.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-green-600 mt-1">✔</span>
+                        <span>Menyediakan layanan dan lingkungan Islami yang kondusif untuk keluarga muslim.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan -->
+    <section class="bg-white py-8 md:py-12 lg:py-16" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold text-green-700 mb-10">
+        Keunggulan Pondok Radja Syariah
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- Box Template -->
+        <div class="bg-white max-w-sm mx-auto w-full p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition duration-300">
+            <div class="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-green-100 text-green-700 rounded-full mb-4">
+            <i class="fas fa-hand-holding-dollar text-lg sm:text-2xl"></i>
+            </div>
+            <h3 class="text-base sm:text-xl font-semibold text-green-600 mb-2">
+            Tanpa Riba
+            </h3>
+            <p class="text-gray-600 text-sm sm:text-base">
+            Seluruh transaksi dilakukan tanpa bunga dan terbebas dari praktik riba sesuai syariat Islam.
+            </p>
+        </div>
+
+        <!-- Box 2 -->
+        <div class="bg-white max-w-sm mx-auto w-full p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition duration-300">
+            <div class="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-green-100 text-green-700 rounded-full mb-4">
+            <i class="fas fa-scroll text-lg sm:text-2xl"></i>
+            </div>
+            <h3 class="text-base sm:text-xl font-semibold text-green-600 mb-2">
+            Berbasis Syariah
+            </h3>
+            <p class="text-gray-600 text-sm sm:text-base">
+            Semua proses akad, pembelian, dan kepemilikan sesuai dengan prinsip-prinsip Islam.
+            </p>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="bg-white max-w-sm mx-auto w-full p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition duration-300">
+            <div class="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-green-100 text-green-700 rounded-full mb-4">
+            <i class="fas fa-people-group text-lg sm:text-2xl"></i>
+            </div>
+            <h3 class="text-base sm:text-xl font-semibold text-green-600 mb-2">
+            Komunitas Islami
+            </h3>
+            <p class="text-gray-600 text-sm sm:text-base">
+            Lingkungan yang dibangun untuk mendukung gaya hidup Islami dan keberkahan hidup bersama.
+            </p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Nilai Nilai Syariah -->
+    <section class="bg-white py-8 md:py-12 lg:py-16" data-aos="fade-up">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold text-green-700 mb-10">
+                Nilai-Nilai Syariah
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Nilai 1 -->
+                <div class="bg-white max-w-sm mx-auto w-full p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-green-100 text-green-700 rounded-full mb-4">
+                        <i class="fas fa-balance-scale text-lg sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-base sm:text-xl font-semibold text-green-600 mb-2">Keadilan</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">
+                        Menjunjung tinggi prinsip keadilan dalam segala aspek, baik muamalah maupun kehidupan sosial.
+                    </p>
+                </div>
+
+                <!-- Nilai 2 -->
+                <div class="bg-white max-w-sm mx-auto w-full p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-green-100 text-green-700 rounded-full mb-4">
+                        <i class="fas fa-hand-holding-usd text-lg sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-base sm:text-xl font-semibold text-green-600 mb-2">Tanpa Riba</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">
+                        Menghindari praktik riba dan transaksi yang tidak jelas, sesuai tuntunan Al-Qur’an dan Hadits.
+                    </p>
+                </div>
+
+                <!-- Nilai 3 -->
+                <div class="bg-white max-w-sm mx-auto w-full p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-green-100 text-green-700 rounded-full mb-4">
+                        <i class="fas fa-mosque text-lg sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-base sm:text-xl font-semibold text-green-600 mb-2">Spiritualitas</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">
+                        Mendorong kehidupan yang selaras dengan ibadah, nilai keislaman, dan penguatan iman.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- footer -->
+    <footer class="bg-gray-100 text-gray-800 py-12 px-6 mt-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+
+        <!-- Kiri: About Us + Follow Us (stacked) -->
+        <div class="space-y-8">
+        <!-- About Us -->
+        <div>
+            <h3 class="text-xl font-bold text-green-700 mb-4">About Us</h3>
+            <p class="text-gray-600">
+            Pondok Radja Syariah adalah hunian Islami tanpa riba, berdasarkan Al-Qur’an dan Sunnah. Hadirkan kenyamanan, keamanan, dan keberkahan dalam hidup Anda.
+            </p>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+            <h3 class="text-xl font-bold text-green-700 mb-4">Follow Us</h3>
+            <div class="flex space-x-4 mt-2">
+            <a href="https://www.facebook.com/propertiradjasyariahproperti" class="hover:text-green-600">
+                <img src="https://img.icons8.com/ios-filled/24/000000/facebook--v1.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/pondokradjasyariah.official/profilecard/?igsh=Zjd1azdtNTlnOXM=" class="hover:text-green-600">
+                <img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram">
+            </a>
+            <a href="https://t.me/kenangaresidence" class="hover:text-green-600">
+            <img src="https://img.icons8.com/ios-filled/24/000000/telegram-app.png" alt="Telegram">
+            </a>
+            </div>
+        </div>
+        </div>
+
+        <!-- Tengah: Contact -->
+        <div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Contact Us</h3>
+        <ul class="space-y-2 text-gray-600">
+            <li><strong>WhatsApp:</strong> +62 878-7461-3203</li>
+            <li><strong>Telp:</strong> +62 817-6412-036</li>
+            <li><strong>Email:</strong> pondokradjasyriah@gmail.com </li>
+            <li><strong>Alamat:</strong><br>Perumahan Ranco Indah, Jl Muara No 43, Rt 008/02, Tanjung Barat, Jagakarsa, Jakarta Selatan</li>
+        </ul>
+        </div>
+
+        <!-- Kanan: Maps -->
+        <div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Lokasi Kami</h3>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2159421378374!2d106.8271531!3d-6.237413799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f20db67b558f%3A0x2259d3264a2c71b6!2sJl.%20Muara%20No.43%2C%20RT.8%2FRW.2%2C%20Tj.%20Barat%2C%20Jagakarsa%2C%20Kota%20Jakarta%20Selatan!5e0!3m2!1sid!2sid!4v1683123456789!5m2!1sid!2sid"
+            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-10 text-gray-600 text-sm py-1">
+        <hr class="mb-4">
+        <p>© 2025 Pondok Radja Syariah. All rights reserved.</p>
+    </div>
+    </footer>
+
+    <!-- Tombol WhatsApp & Scroll to Top -->
+    <div class="fixed bottom-4 right-4 z-50 flex flex-col items-end space-y-3" id="buttonGroup">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/+628176412036" target="_blank"
+            class="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition">
+            <img src="https://img.icons8.com/ios-filled/30/ffffff/whatsapp.png" alt="WhatsApp" />
+        </a>
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTopBtn"
+            onclick="scrollToTop()"
+            class="hidden bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-800 transition">
+            ⬆️
+        </button>
+    </div>
+
+    <!-- Script wa & scroll-->
+    <script>
+        const scrollBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 100) {
+                scrollBtn.classList.remove("hidden");
+            } else {
+                scrollBtn.classList.add("hidden");
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+
+    <script>
+    // Toggle Mobile Menu
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
+
+    // Navbar Hide on Scroll Down, Show on Scroll Up
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', function () {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop && currentScroll > 50) {
+        // Scroll Down
+        navbar.style.transform = 'translateY(-100%)';
+        } else {
+        // Scroll Up
+        navbar.style.transform = 'translateY(0)';
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+    </script>
+
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true, // animasi hanya sekali saat scroll pertama
+        });
+    </script>
+        <script>
+    // Ambil query dari URL
+    function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param) || "";
+    }
+    </script>
+    
+
+
+</body>
+</html>

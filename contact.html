@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="dokumen/logo-modified.png">
+    <!-- link -->
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Headroom.js -->
+    <script src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode with class
+        }
+    </script>
+    <!-- Tambahkan di dalam <head> atau file CSS -->
+    <style>
+    select {
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20fill%3D%22%23444444%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2212%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.75rem center;
+        background-size: 1rem;
+        padding-right: 2.5rem;
+    }
+    </style>
+
+    <style>
+        #navbar {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+    <title>Contact | Properti Radja Syariah</title>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- nav -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white-900/80 backdrop-blur-md transition-all duration-300 shadow-lg py-3">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 transition-all duration-300" id="navbar-inner">
+    <!-- Logo -->
+    <div class="flex items-center space-x-3 cursor-pointer">
+        <a href="index.html" class="flex items-center space-x-3">
+            <img src="dokumen/logo icon.png" alt="Logo Radja Syariah"
+            class="h-12 w-15 rounded-full bg-white p-1 shadow object-cover transition-transform duration-300 hover:scale-105"
+            id="logo">
+            <span class="font-extrabold text-2xl tracking-wide leading-tight select-none text-white">
+            <span style="color: #4CAF50;">Radja Syariah</span>
+            </span>
+        </a>
+        </div>
+
+        <!-- Menu Desktop -->
+        <nav class="space-x-6 hidden md:flex font-medium text-dark">
+        <a href="index.html" class="hover:text-green-400 transition">Home</a>
+        <a href="profil.html" class="hover:text-green-400 transition">Profil</a>
+        <a href="perumahan.html" class="hover:text-green-400 transition">Perumahan Syariah</a>
+        <a href="artikel.html" class="hover:text-green-400 transition">Artikel</a>
+        <a href="contact.html" class="hover:text-green-400 transition">Contact</a>
+        </nav>
+
+        <!-- Right: Search + Hamburger -->
+        <div class="flex items-center space-x-4">
+        <!-- Search Box -->
+        <form action="perumahan.html" method="GET" class="relative hidden md:block">
+            <input type="text" name="search" placeholder="Search..."
+            class="pl-10 pr-4 py-1.5 rounded-full bg-white-800 text-dark border border-gray-600 focus:ring-2 focus:ring-green-500 focus:outline-none text-sm placeholder-gray-400" />
+            <svg class="w-5 h-4 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+        </form>
+
+        <!-- Hamburger -->
+        <button id="menu-toggle" class="md:hidden text-dark focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white-900 text-dark px-4 pb-4 font-medium">
+        <a href="index.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Home</a>
+        <a href="profil.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Profil</a>
+        <a href="perumahan.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Perumahan Syariah</a>
+        <a href="artikel.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Artikel</a>
+        <a href="contact.html" class="block py-2 hover:text-green-400">Contact</a>
+    </div>
+    </header>
+
+    
+   <!-- Hero Section -->
+    <section
+    class="bg-gradient-to-br from-green-100 to-white pt-52 pb-24 text-center relative overflow-hidden" data-aos="fade-in" >
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-green-800">
+       Hubungi Kami
+    </h1>
+    <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-700">
+        Kirim pertanyaan, konsultasi, atau pemesanan langsung ke WhatsApp kami.
+     </p>
+    </section>
+
+    <section class="max-w-3xl mx-auto px-4 py-25">
+    <div class="bg-white shadow rounded-lg p-6">
+    <form id="contactForm" onsubmit="kirimPesan(); return false;">
+        <div class="mb-4">
+            <label for="nama" class="block text-sm font-medium text-gray-700 mb-1">Nama Anda</label>
+            <input type="text" id="nama" placeholder="Contoh: Ahmad" required
+            class="border p-3 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <div class="mb-4">
+            <label for="pesan" class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
+            <textarea id="pesan" rows="5" placeholder="Contoh: Saya tertarik dengan rumah tipe Syariah di Bogor, bisa info lebih lanjut?"
+            required class="border p-3 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+        </div>
+
+        <button type="submit"
+            class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded transition w-full md:w-auto">Kirim via WhatsApp</button>
+        </form>
+    </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="bg-gray-100 text-gray-800 py-12 px-6 mt-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+
+        <!-- Kiri: About Us + Follow Us (stacked) -->
+        <div class="space-y-8">
+        <!-- About Us -->
+        <div>
+            <h3 class="text-xl font-bold text-green-700 mb-4">About Us</h3>
+            <p class="text-gray-600">
+            Pondok Radja Syariah adalah hunian Islami tanpa riba, berdasarkan Al-Qur’an dan Sunnah. Hadirkan kenyamanan, keamanan, dan keberkahan dalam hidup Anda.
+            </p>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+            <h3 class="text-xl font-bold text-green-700 mb-4">Follow Us</h3>
+            <div class="flex space-x-4 mt-2">
+            <a href="https://www.facebook.com/propertiradjasyariahproperti" class="hover:text-green-600">
+                <img src="https://img.icons8.com/ios-filled/24/000000/facebook--v1.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/pondokradjasyariah.official/profilecard/?igsh=Zjd1azdtNTlnOXM=" class="hover:text-green-600">
+                <img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram">
+            </a>
+            <a href="https://t.me/kenangaresidence" class="hover:text-green-600">
+            <img src="https://img.icons8.com/ios-filled/24/000000/telegram-app.png" alt="Telegram">
+            </a>
+            </div>
+        </div>
+        </div>
+
+        <!-- Tengah: Contact -->
+        <div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Contact Us</h3>
+        <ul class="space-y-2 text-gray-600">
+            <li><strong>WhatsApp:</strong> +62 878-7461-3203</li>
+            <li><strong>Telp:</strong> +62 817-6412-036</li>
+            <li><strong>Email:</strong> pondokradjasyriah@gmail.com </li>
+            <li><strong>Alamat:</strong><br>Perumahan Ranco Indah, Jl Muara No 43, Rt 008/02, Tanjung Barat, Jagakarsa, Jakarta Selatan</li>
+        </ul>
+        </div>
+
+        <!-- Kanan: Maps -->
+        <div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Lokasi Kami</h3>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2159421378374!2d106.8271531!3d-6.237413799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f20db67b558f%3A0x2259d3264a2c71b6!2sJl.%20Muara%20No.43%2C%20RT.8%2FRW.2%2C%20Tj.%20Barat%2C%20Jagakarsa%2C%20Kota%20Jakarta%20Selatan!5e0!3m2!1sid!2sid!4v1683123456789!5m2!1sid!2sid"
+            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-10 text-gray-600 text-sm py-1">
+        <hr class="mb-4">
+        <p>© 2025 Pondok Radja Syariah. All rights reserved.</p>
+    </div>
+    </footer>
+    
+
+    <!-- Tombol WhatsApp & Scroll to Top -->
+    <div class="fixed bottom-4 right-4 z-50 flex flex-col items-end space-y-3" id="buttonGroup">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/+628176412036" target="_blank"
+            class="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition">
+            <img src="https://img.icons8.com/ios-filled/30/ffffff/whatsapp.png" alt="WhatsApp" />
+        </a>
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTopBtn"
+            onclick="scrollToTop()"
+            class="hidden bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-800 transition">
+            ⬆️
+        </button>
+    </div>
+
+    <!-- Script wa & scroll-->
+    <script>
+        const scrollBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 100) {
+                scrollBtn.classList.remove("hidden");
+            } else {
+                scrollBtn.classList.add("hidden");
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+    <script>
+    // Toggle Mobile Menu
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
+
+    // Navbar Hide on Scroll Down, Show on Scroll Up
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', function () {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop && currentScroll > 50) {
+        // Scroll Down
+        navbar.style.transform = 'translateY(-100%)';
+        } else {
+        // Scroll Up
+        navbar.style.transform = 'translateY(0)';
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+    </script>
+
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true, // animasi hanya sekali saat scroll pertama
+        });
+    </script>
+    <script>
+    function kirimPesan() {
+    // Nomor WhatsApp tujuan (format internasional tanpa + atau 0 di awal)
+    const nomorTujuan = "62895405955038";  // ganti dengan nomor Anda
+    
+    // Ambil nilai dari form
+    const nama = document.getElementById("nama").value;
+    const pesan = document.getElementById("pesan").value;
+    
+    // Susun isi pesan yang akan dikirim
+    const isiPesan = "Halo, saya " + nama + ". " + pesan;
+    
+    // Enkode pesan untuk URL (menghindari karakter spesial bermasalah)
+    const encodedPesan = encodeURIComponent(isiPesan);
+    
+    // Buat URL WhatsApp dengan nomor dan pesan terenkode
+    const whatsappURL = "https://wa.me/" + nomorTujuan + "?text=" + encodedPesan;
+    
+    // Buka WhatsApp (akan membuka aplikasi atau WhatsApp Web tergantung perangkat)
+    window.open(whatsappURL, "_blank");
+    }
+    </script>
+
+</body>
+</html>

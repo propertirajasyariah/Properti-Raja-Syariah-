@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="dokumen/logo-modified.png">
+    <!-- link -->
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Headroom.js -->
+    <script src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode with class
+        }
+    </script>
+    <!-- Tambahkan di dalam <head> atau file CSS -->
+    <style>
+    select {
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20fill%3D%22%23444444%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2212%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.75rem center;
+        background-size: 1rem;
+        padding-right: 2.5rem;
+    }
+    </style>
+
+    <style>
+        #navbar {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+    <title>Peumahan Syariah | Properti Radja Syariah</title>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- NAVBAR -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white-900/80 backdrop-blur-md transition-all duration-300 shadow-lg py-3">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 transition-all duration-300" id="navbar-inner">
+    <!-- Logo -->
+    <div class="flex items-center space-x-3 cursor-pointer">
+        <a href="index.html" class="flex items-center space-x-3">
+            <img src="dokumen/logo icon.png" alt="Logo Radja Syariah"
+            class="h-12 w-15 rounded-full bg-white p-1 shadow object-cover transition-transform duration-300 hover:scale-105"
+            id="logo">
+            <span class="font-extrabold text-2xl tracking-wide leading-tight select-none text-white">
+            <span style="color: #4CAF50;">Radja Syariah</span>
+            </span>
+        </a>
+        </div>
+
+        <!-- Menu Desktop -->
+        <nav class="space-x-6 hidden md:flex font-medium text-dark">
+        <a href="index.html" class="hover:text-green-400 transition">Home</a>
+        <a href="profil.html" class="hover:text-green-400 transition">Profil</a>
+        <a href="perumahan.html" class="hover:text-green-400 transition">Perumahan Syariah</a>
+        <a href="artikel.html" class="hover:text-green-400 transition">Artikel</a>
+        <a href="contact.html" class="hover:text-green-400 transition">Contact</a>
+        </nav>
+
+        <!-- Right: Search + Hamburger -->
+        <div class="flex items-center space-x-4">
+        <!-- Search Box -->
+        <form action="perumahan.html" method="GET" class="relative hidden md:block">
+            <input type="text" name="search" placeholder="Search..."
+            class="pl-10 pr-4 py-1.5 rounded-full bg-white-800 text-dark border border-gray-600 focus:ring-2 focus:ring-green-500 focus:outline-none text-sm placeholder-gray-400" />
+            <svg class="w-5 h-4 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+        </form>
+
+        <!-- Hamburger -->
+        <button id="menu-toggle" class="md:hidden text-dark focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white-900 text-dark px-4 pb-4 font-medium">
+        <a href="index.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Home</a>
+        <a href="profil.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Profil</a>
+        <a href="perumahan.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Perumahan Syariah</a>
+        <a href="artikel.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Artikel</a>
+        <a href="contact.html" class="block py-2 hover:text-green-400">Contact</a>
+    </div>
+    </header>
+
+     <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-green-100 to-white pt-52 pb-24 text-center relative overflow-hidden" data-aos="fade-in">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-green-800">Perumahan Syariah Terpercaya</h1>
+        <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-700">Mewujudkan hunian nyaman dan berkah tanpa riba, sesuai prinsip syariah.</p>
+    </section>
+
+    <!-- Filter Dropdown -->
+    <div class="flex flex-wrap justify-start px-12 gap-4 mt-6 mb-6" data-aos="fade-in">
+    <!-- Filter Lokasi -->
+    <div class="relative">
+        <select id="lokasiSelect" class="block appearance-none bg-gray-200 text-gray-800 px-4 py-2 pr-8 rounded-full focus:outline-none">
+        <option value="all">Semua Lokasi</option>
+        <option value="Bogor">Bogor</option>
+        <option value="Bekasi">Bekasi</option>
+        <option value="Depok">Depok</option>
+        <option value="Jakarta">Jakarta</option>
+        </select>
+    </div>
+
+    <!-- Filter Tipe Properti -->
+    <div class="relative">
+        <select id="tipeSelect" class="block appearance-none bg-gray-200 text-gray-800 px-4 py-2 pr-8 rounded-full focus:outline-none">
+        <option value="all">Semua Tipe</option>
+        <option value="Rumah">Rumah</option>
+        <option value="Villa">Villa</option>
+        <option value="Ruko">Ruko</option>
+        <option value="Ruang Usaha">Ruang Usaha</option>
+        </select>
+    </div>
+    </div>
+    
+
+    <section id="rumah-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 md:px-10" data-aos="fade-in"></section>
+
+    <!-- Tombol load more -->
+    <div class="flex justify-center mt-6">
+        <button id="load-more" onclick="showMore()" class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition duration-300">
+            Tampilkan Lebih Banyak
+        </button>
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-gray-100 text-gray-800 py-12 px-6 mt-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+
+        <!-- Kiri: About Us + Follow Us (stacked) -->
+        <div class="space-y-8">
+        <!-- About Us -->
+        <div>
+            <h3 class="text-xl font-bold text-green-700 mb-4">About Us</h3>
+            <p class="text-gray-600">
+            Pondok Radja Syariah adalah hunian Islami tanpa riba, berdasarkan Al-Qur’an dan Sunnah. Hadirkan kenyamanan, keamanan, dan keberkahan dalam hidup Anda.
+            </p>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+            <h3 class="text-xl font-bold text-green-700 mb-4">Follow Us</h3>
+            <div class="flex space-x-4 mt-2">
+            <a href="https://www.facebook.com/propertiradjasyariahproperti" class="hover:text-green-600">
+                <img src="https://img.icons8.com/ios-filled/24/000000/facebook--v1.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/pondokradjasyariah.official/profilecard/?igsh=Zjd1azdtNTlnOXM=" class="hover:text-green-600">
+                <img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram">
+            </a>
+            <a href="https://t.me/kenangaresidence" class="hover:text-green-600">
+            <img src="https://img.icons8.com/ios-filled/24/000000/telegram-app.png" alt="Telegram">
+            </a>
+            </div>
+        </div>
+        </div>
+
+        <!-- Tengah: Contact -->
+        <div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Contact Us</h3>
+        <ul class="space-y-2 text-gray-600">
+            <li><strong>WhatsApp:</strong> +62 878-7461-3203</li>
+            <li><strong>Telp:</strong> +62 817-6412-036</li>
+            <li><strong>Email:</strong> pondokradjasyriah@gmail.com </li>
+            <li><strong>Alamat:</strong><br>Perumahan Ranco Indah, Jl Muara No 43, Rt 008/02, Tanjung Barat, Jagakarsa, Jakarta Selatan</li>
+        </ul>
+        </div>
+
+        <!-- Kanan: Maps -->
+        <div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Lokasi Kami</h3>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2159421378374!2d106.8271531!3d-6.237413799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f20db67b558f%3A0x2259d3264a2c71b6!2sJl.%20Muara%20No.43%2C%20RT.8%2FRW.2%2C%20Tj.%20Barat%2C%20Jagakarsa%2C%20Kota%20Jakarta%20Selatan!5e0!3m2!1sid!2sid!4v1683123456789!5m2!1sid!2sid"
+            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-10 text-gray-600 text-sm py-1">
+        <hr class="mb-4">
+        <p>© 2025 Pondok Radja Syariah. All rights reserved.</p>
+    </div>
+    </footer>
+
+    <!-- Tombol WhatsApp & Scroll to Top -->
+    <div class="fixed bottom-4 right-4 z-50 flex flex-col items-end space-y-3" id="buttonGroup">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/+628176412036" target="_blank"
+            class="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition">
+            <img src="https://img.icons8.com/ios-filled/30/ffffff/whatsapp.png" alt="WhatsApp" />
+        </a>
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTopBtn"
+            onclick="scrollToTop()"
+            class="hidden bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-800 transition">
+            ⬆️
+        </button>
+    </div>
+
+    <!-- Script wa & scroll-->
+    <script>
+        const scrollBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 100) {
+                scrollBtn.classList.remove("hidden");
+            } else {
+                scrollBtn.classList.add("hidden");
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+    <!-- Script untuk toggle detail -->
+    <script>
+    function toggleDetail(card) {
+        const detail = card.querySelector('.detail');
+        const hover = card.querySelector('.hover-card');
+        const isActive = card.classList.contains('active');
+
+        if (isActive) {
+        detail.classList.add('opacity-0', 'max-h-0');
+        card.classList.remove('active');
+        setTimeout(() => {
+            detail.classList.add('hidden');
+        }, 300);
+        } else {
+        detail.classList.remove('hidden');
+        hover.classList.add('hidden');
+        setTimeout(() => {
+            detail.classList.remove('opacity-0', 'max-h-0');
+        }, 10);
+        card.classList.add('active');
+        }
+    }
+    </script>
+
+    <script>
+    // Toggle Mobile Menu
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
+
+    // Navbar Hide on Scroll Down, Show on Scroll Up
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', function () {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop && currentScroll > 50) {
+        // Scroll Down
+        navbar.style.transform = 'translateY(-100%)';
+        } else {
+        // Scroll Up
+        navbar.style.transform = 'translateY(0)';
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+    </script>
+
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true, // animasi hanya sekali saat scroll pertama
+        });
+    </script>
+<script>
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param) || "";
+    }
+
+    let limit = 4;
+    let tampil = 0;
+    let rumahFilter = [];
+    let keywordDipilih = getQueryParam("search") || "";
+    let lokasiDipilih = "all";
+    let tipeDipilih = "all";
+
+    const rumah = [
+        { id: 1, nama: "ADNAN NABILA REGENCY", lokasi: "Depok", harga: "Rp.500 juta hingga Rp.1 miliar", gambar: "dokumen/ADNAN NABILA REGENCY.jpg", kategori: "Depok", tipe: "Rumah" },
+        { id: 2, nama: "RUKO BENTENG MADANI", lokasi: "Bogor", harga: "Rp.200 juta hingga Rp.800 juta", gambar: "dokumen/RUKO BENTENG MADANI.jpg", kategori: "Bogor", tipe: "Ruko" },
+        { id: 3, nama: "PANCASAN ASRI", lokasi: "Bogor", harga: "Rp 600.000.000", gambar: "dokumen/asri.jpg", kategori: "Bogor", tipe: "Rumah" },
+        { id: 4, nama: "ABDURRAHMAN ADININTIA REGENCY", lokasi: "Bogor", harga: "Rp 400 juta hingga 800 juta", gambar: "dokumen/36.jpg", kategori: "Bogor", tipe: "Rumah" },
+        { id: 5, nama: "RUKO CILODONG", lokasi: "Depok", harga: "Rp 1 miliar", gambar: "dokumen/23.jpg", kategori: "Depok", tipe: "Ruko" },
+        { id: 6, nama: "Griya Nabawi", lokasi: "Depok", harga: "Rp 520.000.000", gambar: "dokumen/griya nabawi.jpg", kategori: "Depok", tipe: "Rumah" },
+        { id: 7, nama: "Grahamas kenanga", lokasi: "Bogor", harga: "Rp 250.000.000", gambar: "dokumen/10.jpg", kategori: "Bogor", tipe: "Rumah" },
+    ];
+
+    function renderRumah() {
+        tampil = 0;
+        const list = document.getElementById("rumah-list");
+        list.innerHTML = "";
+
+        const hasilFilter = rumah.filter(r => {
+            const cocokLokasi = lokasiDipilih === "all" || r.kategori.toLowerCase() === lokasiDipilih.toLowerCase();
+            const cocokTipe = tipeDipilih === "all" || (r.tipe && r.tipe.toLowerCase() === tipeDipilih.toLowerCase());
+            const cocokKeyword = keywordDipilih === "" || r.nama.toLowerCase().includes(keywordDipilih.toLowerCase());
+            return cocokLokasi && cocokTipe && cocokKeyword;
+        });
+
+        rumahFilter = hasilFilter;
+
+        if (rumahFilter.length === 0) {
+            list.innerHTML = `
+                <div class="col-span-full flex flex-col items-center justify-center py-24">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m2 7H7a2 2 0 01-2-2V7a2 2 0 012-2h3l2-2h2l2 2h3a2 2 0 012 2v11a2 2 0 01-2 2z" />
+                    </svg>
+                    <p class="text-gray-600 text-lg">Tidak ada rumah yang sesuai dengan pencarian.</p>
+                </div>`;
+            document.getElementById("load-more").style.display = "none";
+            return;
+        }
+
+        showMore();
+    }
+
+    function showMore() {
+        const list = document.getElementById("rumah-list");
+        const sisa = rumahFilter.slice(tampil, tampil + limit);
+
+        sisa.forEach(r => {
+        const card = `
+            <a href="detail.html?id=${r.id}" class="block bg-white rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+            <div class="w-full aspect-[4/3] overflow-hidden rounded-md mb-4">
+                <img src="${r.gambar}" alt="${r.nama}" class="w-full h-full object-contain">
+            </div>
+            <h3 class="text-lg font-bold text-gray-900">${r.nama}</h3>
+            <p class="text-sm text-gray-600">${r.lokasi}</p>
+            <p class="text-md text-blue-600 font-semibold mt-2">${r.harga}</p>
+            </a>
+        `;
+        list.innerHTML += card;
+        });
+
+        tampil += sisa.length;
+
+        const loadMoreBtn = document.getElementById("load-more");
+        if (tampil >= rumahFilter.length) {
+            loadMoreBtn.style.display = "none";
+        } else {
+            loadMoreBtn.style.display = "block";
+        }
+    }
+
+    // Inisialisasi saat halaman dimuat
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("lokasiSelect").addEventListener("change", function () {
+            lokasiDipilih = this.value;
+            renderRumah();
+        });
+
+        document.getElementById("tipeSelect").addEventListener("change", function () {
+            tipeDipilih = this.value;
+            renderRumah();
+        });
+
+        document.getElementById("load-more").addEventListener("click", function () {
+            showMore();
+        });
+
+        renderRumah(); // pertama kali render
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("lokasiSelect").addEventListener("change", function () {
+        lokasiDipilih = this.value;
+        renderRumah();
+    });
+
+    document.getElementById("tipeSelect").addEventListener("change", function () {
+        tipeDipilih = this.value;
+        renderRumah();
+    });
+
+    renderRumah(); // penting ini
+});
+
+</script>
+
+</body>
+</html>

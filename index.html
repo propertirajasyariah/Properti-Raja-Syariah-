@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="dokumen/logo-modified.png">
+    <!-- link -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Headroom.js -->
+    <script src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"></script>
+      <!-- Animate.css CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        /* Buat animasi X button tutup modal */
+        .close-btn:hover {
+        transform: scale(1.1);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode with class
+        }
+    </script>
+
+    <style>
+    #navbar {
+        transition: transform 0.3s ease-in-out;
+    }
+    </style>
+    <title>Home | Properti Radja Syariah</title>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- NAVBAR -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-lg py-3">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center space-x-3 cursor-pointer">
+                <img src="dokumen/logo icon.png" alt="Logo Radja Syariah"
+                    class="h-12 w-15 rounded-full bg-white p-1 shadow object-cover transition-transform duration-300 hover:scale-105"
+                    id="logo">
+                <span class="font-extrabold text-2xl tracking-wide leading-tight select-none text-green-600">
+                    Radja Syariah
+                </span>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex space-x-6 font-medium text-gray-800">
+                <a href="index.html" class="hover:text-green-500 transition">Home</a>
+                <a href="profil.html" class="hover:text-green-500 transition">Profil</a>
+                <a href="perumahan.html" class="hover:text-green-500 transition">Perumahan Syariah</a>
+                <a href="artikel.html" class="hover:text-green-500 transition">Artikel</a>
+                <a href="contact.html" class="hover:text-green-500 transition">Contact</a>
+            </nav>
+
+            <!-- Right: Search + Hamburger -->
+            <div class="flex items-center space-x-4">
+                <!-- Search Box -->
+                <form action="perumahan.html" method="GET" class="relative hidden md:block">
+                    <input type="text" name="search" placeholder="Search..."
+                        class="pl-10 pr-4 py-1.5 rounded-full bg-gray-100 text-gray-900 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-sm placeholder-gray-500" />
+                    <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor"
+                        stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </form>
+
+                <!-- Hamburger -->
+                <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white text-gray-800 px-4 pb-4 font-medium">
+            <a href="index.html"
+                class="block py-2 border-b border-gray-300 hover:text-green-500 transition">Home</a>
+            <a href="profil.html"
+                class="block py-2 border-b border-gray-300 hover:text-green-500 transition">Profil</a>
+            <a href="perumahan.html"
+                class="block py-2 border-b border-gray-300 hover:text-green-500 transition">Perumahan Syariah</a>
+            <a href="artikel.html"
+                class="block py-2 border-b border-gray-300 hover:text-green-500 transition">Artikel</a>
+            <a href="contact.html" class="block py-2 hover:text-green-500 transition">Contact</a>
+        </div>
+    </header>
+
+<style>
+    @keyframes wave-hand {
+        0% { transform: rotate(0deg); }
+        15% { transform: rotate(14deg); }
+        30% { transform: rotate(-8deg); }
+        45% { transform: rotate(14deg); }
+        60% { transform: rotate(-4deg); }
+        75% { transform: rotate(10deg); }
+        100% { transform: rotate(0deg); }
+    }
+
+    .wave-animation {
+        display: inline-block;
+        animation: wave-hand 2s ease-in-out infinite;
+        transform-origin: bottom center;
+    }
+
+
+    /* Modal box ukuran */
+    #welcomeModal > div {
+        max-width: 450px; /* agak besar, tapi masih responsive */
+        width: 90%;
+        padding: 2rem;
+    }
+
+    /* Untuk mobile */
+    @media (max-width: 480px) {
+        #welcomeModal > div {
+            max-width: 90vw;
+            padding: 1.5rem;
+        }
+        .wave-animation {
+            width: 60px !important;
+            height: 60px !important;
+            margin-bottom: 1rem !important;
+        }
+    }
+</style>
+
+    <div id="welcomeModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-xl p-8 text-center shadow-xl relative animate__animated animate__fadeInDown">
+            <button onclick="closeModal()" 
+                    class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition" 
+                    aria-label="Tutup popup">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" 
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <img src="dokumen/icon.png" alt="Animated Hand" class="w-20 h-20 mx-auto mb-4 rounded-full wave-animation" />
+
+            <h2 class="text-3xl font-semibold text-gray-800 mb-3">Selamat Datang!</h2>
+            <p class="text-gray-600 mb-6 px-4 leading-relaxed">
+                Terima kasih telah mengunjungi website <strong>Radja Syariah</strong>.<br>
+                Semoga hari Anda diberkahi dan menyenangkan 🌿
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Pastikan fungsi ini hanya ada 1x di halaman kamu
+        function showModal() {
+            document.getElementById('welcomeModal').classList.remove('hidden');
+        }
+        function closeModal() {
+            console.log("Close modal clicked");
+            document.getElementById('welcomeModal').classList.add('hidden');
+            sessionStorage.setItem('welcomeModalShown', 'true');
+        }
+
+        window.addEventListener('load', () => {
+            const isShown = sessionStorage.getItem('welcomeModalShown');
+            if (!isShown) {
+                showModal();
+            }
+        });
+    </script>
+
+
+    <!-- Hero -->
+    <section
+        class="relative w-full h-[95vh] flex items-center justify-center overflow-hidden bg-white mt-16 md:mt-20"
+        data-aos="fade-in" data-aos-duration="1000">
+        <!-- Background -->
+        <div class="absolute inset-0">
+            <div class="w-full h-full bg-cover bg-center brightness-125 contrast-110 filter blur-sm shadow-2xl rounded-lg"
+                style="background-image: url('dokumen/komplek-perumahan.jpg');"></div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/30 rounded-lg shadow-inner"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center max-w-2xl px-6">
+            <h1
+                class="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight sm:leading-tight px-2 sm:px-0">
+                SEPERTI APA RUMAH SYARIAH?</h1>
+
+            <p class="text-gray-300 font-semibold text-lg italic mb-4 px-2 sm:px-0">‘Umar Radhiyallahu‘anhu berkata:
+            </p>
+
+            <p
+                class="text-2xl sm:text-3xl text-yellow-300 leading-relaxed mb-4 font-[Amiri] px-2 sm:px-0 break-words">
+                لَا يَبِعْ فِي سُوقِنَا إِلَّا مَنْ فَقِهَ إِلَّا أَكَلَ الرِّبَا
+            </p>
+
+            <p class="text-gray-300 text-lg mb-3 px-2 sm:px-0">
+                <span class="font-semibold text-gray-200">"Janganlah</span> seseorang berdagang di pasar kami
+                <span class="font-semibold text-gray-200">sampai dia</span>
+                <span class="font-semibold text-gray-200">paham betul</span> mengenai seluk-beluk riba.”</p>
+
+            <p class="text-sm text-gray-200 mt-4 font-medium px-2 sm:px-0">[Lihat Mughni Muhtaj, 6/310]</p>
+        </div>
+    </section>
+
+    <!-- Konsep Berkah -->
+    <section class="bg-white py-16 px-6 text-gray-800">
+    <div class="max-w-7xl mx-auto">
+        <!-- Judul -->
+        <div class="mb-12 text-center" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">KONSEP BERKAH</h2>
+        <p class="text-lg text-gray-600">7 dalam Kepemilikan Rumah Syariah</p>
+        </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8" data-aos="fade-up" data-aos-delay="100">
+        <!-- Card 1 -->
+        <div class="relative group bg-white border rounded-xl shadow-md p-3 sm:p-5 text-center max-w-xs w-full mx-auto">
+            <img src="dokumen/TANPA-BANK-150x150 (1).jpg" alt="Tanpa KPR Bank"
+            class="w-20 h-20 sm:w-28 sm:h-28 object-cover mb-2 sm:mb-4 rounded-full mx-auto transition-transform duration-300 group-hover:scale-105" />
+
+            <h3 class="text-base sm:text-lg font-semibold text-gray-900">Tanpa KPR Bank</h3>
+            <p class="text-xs sm:text-sm text-gray-500 mb-3">Klik untuk lihat penjelasan</p>
+
+            <!-- Hover text muncul saat di-hover -->
+            <div
+            class="hover-card absolute inset-0 bg-white/90 backdrop-blur-sm p-4 rounded-xl hidden group-hover:flex items-center justify-center text-center text-sm text-gray-700 z-20 transition-all duration-300">
+            <p>Kami tidak bekerja sama dengan bank karena tidak sesuai syariah.</p>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="relative group bg-white border rounded-xl shadow-md p-3 sm:p-5 text-center max-w-xs w-full mx-auto">
+            <img src="dokumen/TANPA-RIBA-150x150.jpg" alt="Tanpa Riba"
+                class="w-20 h-20 sm:w-28 sm:h-28 object-cover mb-2 sm:mb-4 rounded-full mx-auto transition-transform duration-300 group-hover:scale-105" />
+
+            <h3 class="text-base sm:text-lg font-semibold text-gray-900">Tanpa Riba</h3>
+            <p class="text-xs sm:text-sm text-gray-500 mb-3">Klik untuk lihat penjelasan</p>
+
+            <div
+                class="hover-card absolute inset-0 bg-white/90 backdrop-blur-sm p-4 rounded-xl hidden group-hover:flex items-center justify-center text-center text-sm text-gray-700 z-20 transition-all duration-300">
+                <p>Riba adalah tambahan atau manfaat dari hutang. Kami menetapkan nilai tetap dalam akad di awal tanpa tambahan tersembunyi.</p>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="relative group bg-white border rounded-xl shadow-md p-3 sm:p-5 text-center max-w-xs w-full mx-auto">
+            <img src="dokumen/TANPA-DENDA-150x150.jpg" alt="Tanpa Denda"
+                class="w-20 h-20 sm:w-28 sm:h-28 object-cover mb-2 sm:mb-4 rounded-full mx-auto transition-transform duration-300 group-hover:scale-105" />
+
+            <h3 class="text-base sm:text-lg font-semibold text-gray-900">Tanpa Denda</h3>
+            <p class="text-xs sm:text-sm text-gray-500 mb-3">Klik untuk lihat penjelasan</p>
+
+            <div
+                class="hover-card absolute inset-0 bg-white/90 backdrop-blur-sm p-4 rounded-xl hidden group-hover:flex items-center justify-center text-center text-sm text-gray-700 z-20 transition-all duration-300">
+                <p>Kami tidak menerapkan denda karena termasuk riba. Namun ada solusi bagi pembeli yang telat bayar tanpa merugikan pihak manapun.</p>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="relative group bg-white border rounded-xl shadow-md p-3 sm:p-5 text-center max-w-xs w-full mx-auto">
+            <img src="dokumen/rumah.png" alt="Tanpa Sita"
+                class="w-20 h-20 sm:w-28 sm:h-28 object-cover mb-2 sm:mb-4 rounded-full mx-auto transition-transform duration-300 group-hover:scale-105" />
+            <h3 class="text-base sm:text-lg font-semibold text-gray-900">Tanpa Sita</h3>
+            <p class="text-xs sm:text-sm text-gray-500">Klik untuk lihat penjelasan</p>
+            <div
+                class="hover-card absolute inset-0 bg-white/90 backdrop-blur-sm p-4 rounded-xl hidden group-hover:flex items-center justify-center text-center text-sm text-gray-700 z-20 transition-all duration-300">
+                <p>Rumah tetap dihuni, bisa dijual oleh penghuni atau developer. Hasil penjualan menjadi hak pembeli, bukan disita.</p>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="relative group bg-white border rounded-xl shadow-md p-3 sm:p-5 text-center max-w-xs w-full mx-auto">
+            <img src="dokumen/TANPA-BANK-150x150.jpg" alt="Tanpa BI Checking"
+                class="w-20 h-20 sm:w-28 sm:h-28 object-cover mb-2 sm:mb-4 rounded-full mx-auto transition-transform duration-300 group-hover:scale-105" />
+            <h3 class="text-base sm:text-lg font-semibold text-gray-900">Tanpa BI Checking</h3>
+            <p class="text-xs sm:text-sm text-gray-500">Klik untuk lihat penjelasan</p>
+            <div
+                class="hover-card absolute inset-0 bg-white/90 backdrop-blur-sm p-4 rounded-xl hidden group-hover:flex items-center justify-center text-center text-sm text-gray-700 z-20 transition-all duration-300">
+                <p>Kami tidak menggunakan BI Checking. Semua profesi (formal atau informal) bisa memiliki rumah tanpa hambatan administratif.</p>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="relative group bg-white border rounded-xl shadow-md p-3 sm:p-5 text-center max-w-xs w-full mx-auto">
+            <img src="dokumen/TANPA-ASURANSI-1-150x150.jpg" alt="Tanpa Asuransi"
+                class="w-20 h-20 sm:w-28 sm:h-28 object-cover mb-2 sm:mb-4 rounded-full mx-auto transition-transform duration-300 group-hover:scale-105" />
+            <h3 class="text-base sm:text-lg font-semibold text-gray-900">Tanpa Asuransi</h3>
+            <p class="text-xs sm:text-sm text-gray-500">Klik untuk lihat penjelasan</p>
+            <div
+                class="hover-card absolute inset-0 bg-white/90 backdrop-blur-sm p-4 rounded-xl hidden group-hover:flex items-center justify-center text-center text-sm text-gray-700 z-20 transition-all duration-300">
+                <p>Asuransi dalam Islam tergolong gharar (ketidakjelasan) dan maysir (judi). Kami tidak mengikutkan asuransi dalam akad jual beli.</p>
+            </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="relative group bg-white border rounded-xl shadow-md p-3 sm:p-5 text-center max-w-xs w-full mx-auto">
+            <img src="dokumen/TANPA-GHOROR-150x150.jpg" alt="Tanpa Akad Bathil"
+                class="w-20 h-20 sm:w-28 sm:h-28 object-cover mb-2 sm:mb-4 rounded-full mx-auto transition-transform duration-300 group-hover:scale-105" />
+            <h3 class="text-base sm:text-lg font-semibold text-gray-900">Tanpa Akad Bathil</h3>
+            <p class="text-xs sm:text-sm text-gray-500">Klik untuk lihat penjelasan</p>
+            <div
+                class="hover-card absolute inset-0 bg-white/90 backdrop-blur-sm p-4 rounded-xl hidden group-hover:flex items-center justify-center text-center text-sm text-gray-700 z-20 transition-all duration-300">
+                <p>Akad yang tidak sesuai syariah tidak sah dan batal. Kami menjamin akad jual beli sesuai ketentuan Islam.</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Hover effect for card */
+        .card-hover:hover .hover-card {
+        display: flex !important;
+        opacity: 1 !important;
+        }
+    </style>
+    </section>
+
+
+    <!-- produk kami -->
+    <section class="bg-gray-100 py-16 px-6 text-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <!-- Judul -->
+            <div class="mb-12 text-center" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">PRODUK KAMI</h2>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Card Gathering -->
+            <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition" data-aos="zoom-in" data-aos-delay="100">
+                <img src="https://img.icons8.com/color/96/conference.png" alt="Gathering" class="w-20 h-20 mx-auto mb-4">
+                <h3 class="text-xl font-semibold text-center text-gray-900 mb-2">GATHERING</h3>
+                <p class="text-center text-gray-600 text-sm">
+                Pondok Radja Syariah melakukan acara customer gathering untuk mengedukasi tentang perumahan syariah dan juga pengenalan produk-produk Pondok Radja Syariah.
+                </p>
+            </div>
+
+            <!-- Card Survey -->
+            <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition" data-aos="zoom-in" data-aos-delay="200">
+                <img src="https://img.icons8.com/color/96/map-marker--v1.png" alt="Survey" class="w-20 h-20 mx-auto mb-4">
+                <h3 class="text-xl font-semibold text-center text-gray-900 mb-2">SURVEY</h3>
+                <p class="text-center text-gray-600 text-sm">
+                Anda ingin survey lokasi perumahan syariah yang Anda inginkan? Silahkan hubungi kami untuk mengatur jadwal survey sesuai lokasi impian Anda.
+                </p>
+            </div>
+
+            <!-- Card Konsultan -->
+            <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition" data-aos="zoom-in" data-aos-delay="300">
+                <img src="https://img.icons8.com/color/96/businessman.png" alt="Konsultan" class="w-20 h-20 mx-auto mb-4">
+                <h3 class="text-xl font-semibold text-center text-gray-900 mb-2">KONSULTAN</h3>
+                <p class="text-center text-gray-600 text-sm">
+                Anda seorang developer dan ingin hijrah dari properti konvensional menjadi properti 100% syariah? Hubungi kami untuk bergabung memasarkan perumahan syariah.
+                </p>
+            </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Video -->
+    <section id="video" class="py-20 bg-white">
+    <div 
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center" 
+        data-aos="fade-up">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-6 max-w-xl mx-auto">
+        VIDEO PRODUK PERUMAHAN SYARIAH
+        </h2>
+        <p class="text-gray-600 mb-10 max-w-md mx-auto px-4 sm:px-0 text-sm sm:text-base">
+        Temukan konsep perumahan syariah tanpa riba dalam video singkat berikut. Hunian nyaman dengan nilai Islami.
+        </p>
+
+        <div 
+        class="bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-300 max-w-4xl mx-auto"
+        data-aos="zoom-in">
+        <video controls class="w-full h-full object-cover" autoplay muted loop playsinline>
+            <source src="dokumen/4.mp4" type="video/mp4" />
+            Browser Anda tidak mendukung video tag.
+        </video>
+        </div>
+    </div>
+    </section>
+
+    <!-- Section Galeri Pembeli -->
+    <section id="pembeli" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 text-center" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-10">
+        MEREKA YANG SUDAH MEMBELI UNIT
+        </h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Gambar -->
+        <div class="overflow-hidden rounded-xl shadow-lg group" data-aos="zoom-in">
+            <img src="dokumen/17.jpg" alt="Pembeli 1"
+            class="gallery-item w-full h-48 object-cover cursor-pointer rounded-xl transition-transform duration-300 group-hover:scale-105"
+            data-type="image" />
+        </div>
+
+        <!-- Video -->
+        <div class="overflow-hidden rounded-xl shadow-lg group" data-aos="zoom-in">
+            <video src="dokumen/pembeli2.mp4"
+            class="gallery-item w-full h-48 object-cover rounded-xl transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+            data-type="video" muted autoplay loop playsinline></video>
+        </div>
+
+        <!-- Gambar -->
+        <div class="overflow-hidden rounded-xl shadow-lg group" data-aos="zoom-in">
+            <img src="dokumen/pembeli3.jpg" alt="Pembeli 3"
+            class="gallery-item w-full h-48 object-cover cursor-pointer rounded-xl transition-transform duration-300 group-hover:scale-105"
+            data-type="image" />
+        </div>
+
+        <!-- Gambar -->
+        <div class="overflow-hidden rounded-xl shadow-lg group" data-aos="zoom-in">
+            <img src="dokumen/pembeli4..jpg" alt="Pembeli 4"
+            class="gallery-item w-full h-48 object-cover cursor-pointer rounded-xl transition-transform duration-300 group-hover:scale-105"
+            data-type="image" />
+        </div>
+    </div>
+    </div>
+
+    <!-- Modal Zoom -->
+    <div id="galleryModal"
+        class="fixed inset-0 bg-black bg-opacity-80 hidden z-50 flex items-center justify-center p-4">
+        <button id="closeModal" class="absolute top-4 right-4 text-white text-3xl font-bold z-50">&times;</button>
+        <button id="prevBtn"
+            class="absolute left-4 md:left-10 text-white text-4xl font-bold z-50 hover:text-gray-300">&#10094;</button>
+
+        <!-- Container isi modal -->
+        <div id="modalContent" class="z-40 max-w-full max-h-[90vh]">
+            <!-- Gambar atau video akan ditampilkan di sini -->
+        </div>
+
+        <button id="nextBtn"
+            class="absolute right-4 md:right-10 text-white text-4xl font-bold z-50 hover:text-gray-300">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Script Modal Gallery -->
+    <script>
+    const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+    const modal = document.getElementById('galleryModal');
+    const modalContent = document.getElementById('modalContent');
+    const closeModal = document.getElementById('closeModal');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+
+    // Simpan data gambar/video dan tipe-nya
+    const galleryData = galleryItems.map(item => ({
+        src: item.src || item.currentSrc,
+        type: item.dataset.type
+    }));
+
+    let currentIndex = 0;
+
+    function showModal(index) {
+        currentIndex = index;
+        const item = galleryData[index];
+
+        modalContent.innerHTML = ''; // Kosongkan isi
+
+        if (item.type === 'image') {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.className = 'max-h-[90vh] max-w-full rounded-xl object-contain';
+        modalContent.appendChild(img);
+        } else if (item.type === 'video') {
+        const video = document.createElement('video');
+        video.src = item.src;
+        video.controls = true;
+        video.autoplay = true;
+        video.className = 'max-h-[90vh] max-w-full rounded-xl object-contain';
+        modalContent.appendChild(video);
+        }
+
+        modal.classList.remove('hidden');
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % galleryData.length;
+        showModal(currentIndex);
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
+        showModal(currentIndex);
+    }
+
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => showModal(index));
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modalContent.innerHTML = '';
+    });
+
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+        modal.classList.add('hidden');
+        modalContent.innerHTML = '';
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('hidden')) {
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'Escape') {
+            modal.classList.add('hidden');
+            modalContent.innerHTML = '';
+        }
+        }
+    });
+    </script>
+
+    <!-- Testimoni -->
+    <section id="testimoni" class="py-20 bg-gray-900 text-white">
+    <div class="max-w-6xl mx-auto px-4 text-center" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-10">TESTIMONI PENGHUNI PONDOK RADJA SYARIAH</h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-2 gap-8 justify-center">
+        <!-- Video 1 -->
+        <div class="bg-gray-800 p-3 rounded-xl shadow-lg border border-gray-700 w-full max-w-[300px] mx-auto" data-aos="zoom-in">
+            <div class="rounded-md overflow-hidden">
+            <video class="w-full h-auto" controls autoplay muted loop playsinline>
+                <source src="dokumen/15.mp4" type="video/mp4">
+                Browser kamu tidak mendukung video.
+            </video>
+            </div>
+            <p class="text-sm text-gray-300 italic mt-2">Cluster Griya Nabawi</p>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="bg-gray-800 p-3 rounded-xl shadow-lg border border-gray-700 w-full max-w-[300px] mx-auto" data-aos="zoom-in">
+            <div class="rounded-md overflow-hidden">
+            <video class="w-full h-auto" controls autoplay muted loop playsinline>
+                <source src="dokumen/42.mp4" type="video/mp4">
+                Browser kamu tidak mendukung video.
+            </video>
+            </div>
+            <p class="text-sm text-gray-300 italic mt-2">Griya Radja Pancasan Asri</p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Penjelasan -->
+    <section id="perumahan-syariah" class="py-20 bg-gray-100 text-gray-800">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center py-3" data-aos="fade-up">PERUMAHAN SYARIAH</h2>
+        <div class="max-w-6xl mx-auto px-6 md:px-4 grid md:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+
+            <!-- Kiri: Teks -->
+            <div>
+                <p class="text-lg font-semibold text-green-700 mb-4">KENAPA HARUS PERUMAHAN SYARIAH?</p>
+                <p class="text-gray-700 mb-6">
+                    Perumahan syariah hadir sebagai solusi hunian bebas riba dan tanpa keterlibatan pihak ketiga seperti bank. Tanpa denda, tanpa sita, dan semua proses dilakukan secara transparan langsung antara pembeli dan developer. Ini pilihan terbaik bagi Anda yang ingin hidup tenang, nyaman, dan sesuai dengan prinsip Islam.
+                </p>
+            </div>
+
+            <!-- Kanan: Ilustrasi/Gambar -->
+            <div>
+                <img src="dokumen/10.jpg" alt="Perumahan Syariah" class="rounded-2xl shadow-xl w-full object-cover max-h-[400px]">
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- sebenarnya -->
+    <section class="py-20 bg-white text-gray-800">
+    <div class="max-w-4xl mx-auto px-6 text-center" data-aos="fade-up">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-green-600">SEBENARNYA...</h2>
+        <p class="text-lg md:text-xl leading-relaxed mb-4 text-gray-700">
+        Jika kita mau mengikuti syariat dengan baik dan benar,<br class="hidden md:inline">
+        kita tidak akan dibuat susah ataupun dirugikan.
+        </p>
+        <p class="text-md md:text-lg text-gray-600 italic">
+        Ikutilah petunjuk <strong>Al-Qur’an</strong> dan <strong>Sunnah Nabi Muhammad Shallallahu ‘Alayhi Wasallam</strong><br class="hidden md:inline">
+        dengan cara pemahaman Para Sahabat – Sahabatnya, dan yang mengikutinya dengan baik.
+        </p>
+    </div>
+    </section>
+
+    <!-- Artikel -->
+    <section id="artikel" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-16 md:px-4" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">ARTIKEL</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+        <!-- Artikel 1 -->
+        <a href="https://www.kompas.com/tren/read/2022/03/03/113000565/8-tips-membeli-rumah-pertama-bagi-pemula-agar-tak-salah-pilih"
+            target="_blank"
+            class="group bg-gray-50 rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition duration-300 block w-full">
+            <img src="dokumen/tips-membeli-rumah.jpg"
+                alt="8 Tips Membeli Rumah Pertama"
+                class="w-full h-40 md:h-48 object-cover">
+            <div class="p-4 md:p-6"> <!-- padding dikit diperkecil di mobile -->
+            <p class="text-xs md:text-sm text-green-600 font-semibold mb-1">3 Maret 2022 / Kompas.com</p>
+            <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2">8 Tips Membeli Rumah Pertama bagi Pemula</h3>
+            <p class="text-gray-600 mb-4 text-xs md:text-sm hidden sm:block opacity-0 group-hover:block group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                Delapan tips penting bagi pembeli rumah pertama, mulai dari menghitung kemampuan finansial hingga mengecek kualitas bangunan.
+            </p>
+            </div>
+        </a>
+
+        <!-- Artikel 2 -->
+        <a href="https://www.lamudi.co.id/journal/cara-menghitung-cicilan-kpr/"
+            target="_blank"
+            class="group bg-gray-50 rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition duration-300 block w-full">
+            <img src="dokumen/Cara Menghitung Cicilan KPR.jpg"
+                alt="Cara Menghitung Cicilan KPR"
+                class="w-full h-40 md:h-48 object-cover">
+            <div class="p-4 md:p-6">
+            <p class="text-xs md:text-sm text-green-600 font-semibold mb-1">19 Februari 2025 / Lamudi.co.id</p>
+            <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2">Cara Menghitung Cicilan KPR yang Benar</h3>
+            <p class="text-gray-600 mb-4 text-xs md:text-sm hidden sm:block opacity-0 group-hover:block group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                Menjelaskan langkah menghitung angsuran pokok dan bunga per bulan serta perbedaan suku bunga tetap vs floating.
+            </p>
+            </div>
+        </a>
+
+        <!-- Artikel 3 -->
+        <a href="https://www.cermati.com/artikel/beli-rumah-subsidi"
+            target="_blank"
+            class="group bg-gray-50 rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition duration-300 block w-full">
+            <img src="dokumen/7 Hal Sebelum Beli Rumah Subsidi.jpeg"
+                alt="7 Tips Beli Rumah Subsidi"
+                class="w-full h-40 md:h-48 object-cover">
+            <div class="p-4 md:p-6">
+            <p class="text-xs md:text-sm text-green-600 font-semibold mb-1">23 September 2024 / Cermati.com</p>
+            <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-2">7 Tips Beli Rumah Subsidi Supaya Untung</h3>
+            <p class="text-gray-600 mb-4 text-xs md:text-sm hidden sm:block opacity-0 group-hover:block group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                Tujuh tips agar pembelian rumah subsidi menguntungkan, termasuk memilih lokasi strategis dan mengecek kualitas pengembang.
+            </p>
+            </div>
+        </a>
+
+        </div>
+    </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="bg-gray-100 text-gray-800 py-12 px-6 mt-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+
+        <!-- Kiri: About Us + Follow Us (stacked) -->
+        <div class="space-y-8">
+        <!-- About Us -->
+        <div>
+            <h3 class="text-xl font-bold text-green-700 mb-4">About Us</h3>
+            <p class="text-gray-600">
+            Pondok Radja Syariah adalah hunian Islami tanpa riba, berdasarkan Al-Qur’an dan Sunnah. Hadirkan kenyamanan, keamanan, dan keberkahan dalam hidup Anda.
+            </p>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+            <h3 class="text-xl font-bold text-green-700 mb-4">Follow Us</h3>
+            <div class="flex space-x-4 mt-2">
+            <a href="https://www.facebook.com/propertiradjasyariahproperti" class="hover:text-green-600">
+                <img src="https://img.icons8.com/ios-filled/24/000000/facebook--v1.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/pondokradjasyariah.official/profilecard/?igsh=Zjd1azdtNTlnOXM=" class="hover:text-green-600">
+                <img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram">
+            </a>
+            <a href="https://t.me/kenangaresidence" class="hover:text-green-600">
+            <img src="https://img.icons8.com/ios-filled/24/000000/telegram-app.png" alt="Telegram">
+            </a>
+            </div>
+        </div>
+        </div>
+
+        <!-- Tengah: Contact -->
+        <div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Contact Us</h3>
+        <ul class="space-y-2 text-gray-600">
+            <li><strong>WhatsApp:</strong> +62 878-7461-3203</li>
+            <li><strong>Telp:</strong> +62 817-6412-036</li>
+            <li><strong>Email:</strong> pondokradjasyriah@gmail.com </li>
+            <li><strong>Alamat:</strong><br>Perumahan Ranco Indah, Jl Muara No 43, Rt 008/02, Tanjung Barat, Jagakarsa, Jakarta Selatan</li>
+        </ul>
+        </div>
+
+        <!-- Kanan: Maps -->
+        <div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Lokasi Kami</h3>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2159421378374!2d106.8271531!3d-6.237413799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f20db67b558f%3A0x2259d3264a2c71b6!2sJl.%20Muara%20No.43%2C%20RT.8%2FRW.2%2C%20Tj.%20Barat%2C%20Jagakarsa%2C%20Kota%20Jakarta%20Selatan!5e0!3m2!1sid!2sid!4v1683123456789!5m2!1sid!2sid"
+            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-10 text-gray-600 text-sm py-1">
+        <hr class="mb-4">
+        <p>© 2025 Pondok Radja Syariah. All rights reserved.</p>
+    </div>
+    </footer>
+
+
+    <!-- Tombol WhatsApp & Scroll to Top -->
+    <div class="fixed bottom-4 right-4 z-50 flex flex-col items-end space-y-3" id="buttonGroup">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/+628176412036" target="_blank"
+            class="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition">
+            <img src="https://img.icons8.com/ios-filled/30/ffffff/whatsapp.png" alt="WhatsApp" />
+        </a>
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTopBtn"
+            onclick="scrollToTop()"
+            class="hidden bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-800 transition">
+            ⬆️
+        </button>
+    </div>
+
+    <!-- Script wa & scroll-->
+    <script>
+        const scrollBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 100) {
+                scrollBtn.classList.remove("hidden");
+            } else {
+                scrollBtn.classList.add("hidden");
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+
+    <script>
+    // Toggle Mobile Menu
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
+
+    // Navbar Hide on Scroll Down, Show on Scroll Up
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', function () {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop && currentScroll > 50) {
+        // Scroll Down
+        navbar.style.transform = 'translateY(-100%)';
+        } else {
+        // Scroll Up
+        navbar.style.transform = 'translateY(0)';
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+    </script>
+
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true, // animasi hanya sekali saat scroll pertama
+        });
+    </script>
+
+    <script>
+    // Ambil query dari URL
+    function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param) || "";
+    }
+    // Ambil nilai dari query 'ref'
+    const ref = getQueryParam('ref');
+    // Jika ada nilai 'ref', tampilkan alert
+    if (ref) {
+        alert(`Terima kasih telah mengunjungi website kami! Kode referensi Anda: ${ref}`);
+    }
+    </script>
+
+</body>
+</html>

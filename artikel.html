@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="dokumen/logo-modified.png">
+    <!-- link -->
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Headroom.js -->
+    <script src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode with class
+        }
+    </script>
+    <style>
+    #navbar {
+        transition: transform 0.3s ease-in-out;
+    }
+    </style>
+
+    <title>Artikel | Properti Radja Syariah</title>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- NAVBAR -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white-900/80 backdrop-blur-md transition-all duration-300 shadow-lg py-3">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 transition-all duration-300" id="navbar-inner">
+    <!-- Logo -->
+    <div class="flex items-center space-x-3 cursor-pointer">
+        <a href="index.html" class="flex items-center space-x-3">
+            <img src="dokumen/logo icon.png" alt="Logo Radja Syariah"
+            class="h-12 w-15 rounded-full bg-white p-1 shadow object-cover transition-transform duration-300 hover:scale-105"
+            id="logo">
+            <span class="font-extrabold text-2xl tracking-wide leading-tight select-none text-white">
+            <span style="color: #4CAF50;">Radja Syariah</span>
+            </span>
+        </a>
+        </div>
+
+        <!-- Menu Desktop -->
+        <nav class="space-x-6 hidden md:flex font-medium text-dark">
+        <a href="index.html" class="hover:text-green-400 transition">Home</a>
+        <a href="profil.html" class="hover:text-green-400 transition">Profil</a>
+        <a href="perumahan.html" class="hover:text-green-400 transition">Perumahan Syariah</a>
+        <a href="artikel.html" class="hover:text-green-400 transition">Artikel</a>
+        <a href="contact.html" class="hover:text-green-400 transition">Contact</a>
+        </nav>
+
+        <!-- Right: Search + Hamburger -->
+        <div class="flex items-center space-x-4">
+        <!-- Search Box -->
+        <form action="perumahan.html" method="GET" class="relative hidden md:block">
+            <input type="text" name="search" placeholder="Search..."
+            class="pl-10 pr-4 py-1.5 rounded-full bg-white-800 text-dark border border-gray-600 focus:ring-2 focus:ring-green-500 focus:outline-none text-sm placeholder-gray-400" />
+            <svg class="w-5 h-4 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+        </form>
+
+        <!-- Hamburger -->
+        <button id="menu-toggle" class="md:hidden text-dark focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white-900 text-dark px-4 pb-4 font-medium">
+        <a href="index.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Home</a>
+        <a href="profil.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Profil</a>
+        <a href="perumahan.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Perumahan Syariah</a>
+        <a href="artikel.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Artikel</a>
+        <a href="contact.html" class="block py-2 hover:text-green-400">Contact</a>
+    </div>
+    </header>
+
+   <!-- Hero Section -->
+    <section
+    class="bg-gradient-to-br from-green-100 to-white pt-52 pb-24 text-center relative overflow-hidden" data-aos="fade-in" >
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-green-800">
+        Panduan Properti &amp; KPR Syariah
+    </h1>
+    <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-700">
+        Temukan tips membeli hunian nyaman, simulasi cicilan syariah, dan strategi investasi properti yang sesuai prinsip halal tanpa riba.
+     </p>
+    </section>
+
+    <!-- Konten Artikel -->
+    <section class="max-w-8xl mx-auto px-20 mt-28">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        <!-- 1. Tips Membeli Rumah Pertama -->
+        <a href="https://www.kompas.com/tren/read/2022/03/03/113000565/8-tips-membeli-rumah-pertama-bagi-pemula-agar-tak-salah-pilih"
+        target="_blank"
+        class="block bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+        <img src="dokumen/tips-membeli-rumah.jpg"
+            class="w-full h-48 object-cover"
+            alt="Tips Membeli Rumah">
+        <div class="p-4">
+            <h2 class="text-lg font-semibold text-green-700">Tips Membeli Rumah Pertama</h2>
+            <p class="text-sm text-gray-500 mb-2">Diposting 3 Maret 2022</p>
+            <p class="text-gray-700 text-sm">
+            Delapan tips penting bagi pembeli rumah pertama, mulai dari menghitung kemampuan finansial hingga mengecek kualitas bangunan.
+            </p>
+        </div>
+        </a>
+
+        <!-- 2. Cara Menghitung Cicilan KPR yang Benar -->
+        <a href="https://www.lamudi.co.id/journal/cara-menghitung-cicilan-kpr/"
+        target="_blank"
+        class="block bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+        <img src="dokumen/Cara Menghitung Cicilan KPR.jpg"
+            class="w-full h-48 object-cover"
+            alt="Cara Menghitung Cicilan KPR">
+        <div class="p-4">
+            <h2 class="text-lg font-semibold text-green-700">Cara Menghitung Cicilan KPR yang Benar</h2>
+            <p class="text-sm text-gray-500 mb-2">Diposting 19 Februari 2025</p>
+            <p class="text-gray-700 text-sm">
+            Menjelaskan langkah menghitung angsuran pokok dan bunga per bulan serta perbedaan suku bunga tetap vs floating.
+            </p>
+        </div>
+        </a>
+
+        <!-- 3. 7 Tips Beli Rumah Subsidi Supaya Untung -->
+        <a href="https://www.cermati.com/artikel/beli-rumah-subsidi"
+        target="_blank"
+        class="block bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+        <img src="dokumen/7 Hal Sebelum Beli Rumah Subsidi.jpeg"
+            class="w-full h-48 object-cover"
+            alt="7 Tips Beli Rumah Subsidi">
+        <div class="p-4">
+            <h2 class="text-lg font-semibold text-green-700">7 Tips Beli Rumah Subsidi Supaya Untung</h2>
+            <p class="text-sm text-gray-500 mb-2">Diposting 23 September 2024</p>
+            <p class="text-gray-700 text-sm">
+            Tujuh tips agar pembelian rumah subsidi menguntungkan, termasuk memilih lokasi strategis dan mengecek kualitas pengembang.
+            </p>
+        </div>
+        </a>
+
+        <!-- 4. 75,89 Persen Pembelian Rumah Masyarakat Pakai KPR -->
+        <a href="https://www.kompas.com/properti/read/2024/02/19/183000321/75-89-persen-pembelian-rumah-masyarakat-pakai-kpr"
+        target="_blank"
+        class="block bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+        <img src="dokumen/kpr.jpg"
+            class="w-full h-48 object-cover"
+            alt="75,89% Pembelian Rumah Pakai KPR">
+        <div class="p-4">
+            <h2 class="text-lg font-semibold text-green-700">75,89% Pembelian Rumah Pakai KPR</h2>
+            <p class="text-sm text-gray-500 mb-2">Diposting 19 Februari 2024</p>
+            <p class="text-gray-700 text-sm">
+            Survei BI menunjukkan KPR mencakup 75,89% dari total pembiayaan rumah primer masyarakat.
+            </p>
+        </div>
+        </a>
+
+        <!-- 5. Daftar Bank dengan Bunga KPR Paling Rendah Terbaru 2023 -->
+        <a href="https://www.detik.com/properti/berita/d-6951023/daftar-bank-dengan-bunga-kpr-paling-rendah-terbaru-2023"
+        target="_blank"
+        class="block bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+        <img src="dokumen/KPR-bank_1-930x620.jpg"
+            class="w-full h-48 object-cover"
+            alt="Bunga KPR Terendah 2023">
+        <div class="p-4">
+            <h2 class="text-lg font-semibold text-green-700">Bank dengan Bunga KPR Terendah 2023</h2>
+            <p class="text-sm text-gray-500 mb-2">Diposting 26 September 2023</p>
+            <p class="text-gray-700 text-sm">
+            Merangkum bank-bank yang menawarkan suku bunga KPR paling rendah per September 2023.
+            </p>
+        </div>
+        </a>
+
+        <!-- 6. 9 Bank dengan Bunga KPR yang Menarik di 2025 -->
+        <a href="https://www.rumah123.com/panduan-properti/membeli-properti-58661-7-bank-yang-menyediakan-bunga-kpr-murah-di-2020-id.html"
+        target="_blank"
+        class="block bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+        <img src="dokumen/Positive-and-Negative-Gearing-Pros-and-Cons.jpg"
+            class="w-full h-48 object-cover"
+            alt="9 Bank Bunga KPR 2025">
+        <div class="p-4">
+            <h2 class="text-lg font-semibold text-green-700">9 Bank dengan Bunga KPR Menarik 2025</h2>
+            <p class="text-sm text-gray-500 mb-2">Diposting 19 Desember 2024</p>
+            <p class="text-gray-700 text-sm">
+            Mengulas sembilan bank dengan bunga KPR kompetitif di tahun 2025.
+            </p>
+        </div>
+        </a>
+
+        <!-- 7. 8 Tips dan Trik Menabung untuk DP KPR Rumah dengan Praktis -->
+        <a href="https://www.cermati.com/artikel/menabung-untuk-dp-kpr"
+        target="_blank"
+        class="block bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+        <img src="dokumen/tips menabung.jpg"
+            class="w-full h-48 object-cover"
+            alt="Tips Menabung DP KPR">
+        <div class="p-4">
+            <h2 class="text-lg font-semibold text-green-700">8 Tips Menabung untuk DP KPR</h2>
+            <p class="text-sm text-gray-500 mb-2">Diposting 22 Oktober 2023</p>
+            <p class="text-gray-700 text-sm">
+            Delapan tips praktis menabung untuk mengumpulkan DP KPR agar pengajuan lancar.
+            </p>
+        </div>
+        </a>
+
+        <!-- 8. Bank BTN Optimistis KPR Tumbuh Lebih Tinggi Tahun 2024 -->
+        <a href="https://www.btn.co.id/id-ID/About/Gallery/News/Press-Conference/Listing/2024/07/11/Bank-BTN-Optimistis-KPR-Tumbuh-Lebih-Tinggi-Tahun-2024-Ini-Faktor-Pendorongnya"
+        target="_blank"
+        class="block bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+        <img src="dokumen/btn.jpeg"
+            class="w-full h-48 object-cover"
+            alt="BTN Optimistis KPR Tumbuh">
+        <div class="p-4">
+            <h2 class="text-lg font-semibold text-green-700">
+            Bank BTN Optimistis KPR Tumbuh Tahun 2024
+            </h2>
+            <p class="text-sm text-gray-500 mb-2">Diposting 11 Juli 2024</p>
+            <p class="text-gray-700 text-sm">
+            Bank BTN optimistis penyaluran KPR 2024 bakal tumbuh lebih tinggi didukung stimulus pemerintah.
+            </p>
+        </div>
+        </a>
+
+    </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="bg-gray-100 text-gray-800 py-12 px-6 mt-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+
+        <!-- Kiri: About Us + Follow Us (stacked) -->
+        <div class="space-y-8">
+        <!-- About Us -->
+        <div>
+            <h3 class="text-xl font-bold text-green-700 mb-4">About Us</h3>
+            <p class="text-gray-600">
+            Pondok Radja Syariah adalah hunian Islami tanpa riba, berdasarkan Al-Qur’an dan Sunnah. Hadirkan kenyamanan, keamanan, dan keberkahan dalam hidup Anda.
+            </p>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+            <h3 class="text-xl font-bold text-green-700 mb-4">Follow Us</h3>
+            <div class="flex space-x-4 mt-2">
+            <a href="https://www.facebook.com/propertiradjasyariahproperti" class="hover:text-green-600">
+                <img src="https://img.icons8.com/ios-filled/24/000000/facebook--v1.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/pondokradjasyariah.official/profilecard/?igsh=Zjd1azdtNTlnOXM=" class="hover:text-green-600">
+                <img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram">
+            </a>
+            <a href="https://t.me/kenangaresidence" class="hover:text-green-600">
+            <img src="https://img.icons8.com/ios-filled/24/000000/telegram-app.png" alt="Telegram">
+            </a>
+            </div>
+        </div>
+        </div>
+
+        <!-- Tengah: Contact -->
+        <div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Contact Us</h3>
+        <ul class="space-y-2 text-gray-600">
+            <li><strong>WhatsApp:</strong> +62 878-7461-3203</li>
+            <li><strong>Telp:</strong> +62 817-6412-036</li>
+            <li><strong>Email:</strong> pondokradjasyriah@gmail.com </li>
+            <li><strong>Alamat:</strong><br>Perumahan Ranco Indah, Jl Muara No 43, Rt 008/02, Tanjung Barat, Jagakarsa, Jakarta Selatan</li>
+        </ul>
+        </div>
+
+        <!-- Kanan: Maps -->
+        <div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Lokasi Kami</h3>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2159421378374!2d106.8271531!3d-6.237413799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f20db67b558f%3A0x2259d3264a2c71b6!2sJl.%20Muara%20No.43%2C%20RT.8%2FRW.2%2C%20Tj.%20Barat%2C%20Jagakarsa%2C%20Kota%20Jakarta%20Selatan!5e0!3m2!1sid!2sid!4v1683123456789!5m2!1sid!2sid"
+            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-10 text-gray-600 text-sm py-1">
+        <hr class="mb-4">
+        <p>© 2025 Pondok Radja Syariah. All rights reserved.</p>
+    </div>
+    </footer>
+
+    <!-- Tombol WhatsApp & Scroll to Top -->
+    <div class="fixed bottom-4 right-4 z-50 flex flex-col items-end space-y-3" id="buttonGroup">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/+628176412036" target="_blank"
+            class="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition">
+            <img src="https://img.icons8.com/ios-filled/30/ffffff/whatsapp.png" alt="WhatsApp" />
+        </a>
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTopBtn"
+            onclick="scrollToTop()"
+            class="hidden bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-800 transition">
+            ⬆️
+        </button>
+    </div>
+
+    <!-- Script wa & scroll-->
+    <script>
+        const scrollBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 100) {
+                scrollBtn.classList.remove("hidden");
+            } else {
+                scrollBtn.classList.add("hidden");
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+    <script>
+    // Toggle Mobile Menu
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
+
+    // Navbar Hide on Scroll Down, Show on Scroll Up
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', function () {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop && currentScroll > 50) {
+        // Scroll Down
+        navbar.style.transform = 'translateY(-100%)';
+        } else {
+        // Scroll Up
+        navbar.style.transform = 'translateY(0)';
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+    </script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true, // animasi hanya sekali saat scroll pertama
+        });
+    </script>
+
+    <script>
+    // Ambil query dari URL
+    function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param) || "";
+    }
+    </script>
+
+
+
+</body>
+</html>

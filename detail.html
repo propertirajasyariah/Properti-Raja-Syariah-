@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="dokumen/logo-modified.png">
+
+    <!-- link -->
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Glightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+    <!-- Glightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Headroom.js -->
+    <script src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode with class
+        }
+    </script>
+
+    <style>
+        #navbar {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+    <title>Detail | Properti Radja Syariah</title>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- NAVBAR -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white-900/80 backdrop-blur-md transition-all duration-300 shadow-lg py-3">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 transition-all duration-300" id="navbar-inner">
+    <!-- Logo -->
+    <div class="flex items-center space-x-3 cursor-pointer">
+        <a href="index.html" class="flex items-center space-x-3">
+            <img src="dokumen/logo icon.png" alt="Logo Radja Syariah"
+            class="h-12 w-15 rounded-full bg-white p-1 shadow object-cover transition-transform duration-300 hover:scale-105"
+            id="logo">
+            <span class="font-extrabold text-2xl tracking-wide leading-tight select-none text-white">
+            <span style="color: #4CAF50;">Radja Syariah</span>
+            </span>
+        </a>
+        </div>
+
+        <!-- Menu Desktop -->
+        <nav class="space-x-6 hidden md:flex font-medium text-dark">
+        <a href="index.html" class="hover:text-green-400 transition">Home</a>
+        <a href="profil.html" class="hover:text-green-400 transition">Profil</a>
+        <a href="perumahan.html" class="hover:text-green-400 transition">Perumahan Syariah</a>
+        <a href="artikel.html" class="hover:text-green-400 transition">Artikel</a>
+        <a href="contact.html" class="hover:text-green-400 transition">Contact</a>
+        </nav>
+
+        <!-- Right: Search + Hamburger -->
+        <div class="flex items-center space-x-4">
+        <!-- Search Box -->
+        <form action="perumahan.html" method="GET" class="relative hidden md:block">
+            <input type="text" name="search" placeholder="Search..."
+            class="pl-10 pr-4 py-1.5 rounded-full bg-white-800 text-dark border border-gray-600 focus:ring-2 focus:ring-green-500 focus:outline-none text-sm placeholder-gray-400" />
+            <svg class="w-5 h-4 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+        </form>
+
+        <!-- Hamburger -->
+        <button id="menu-toggle" class="md:hidden text-dark focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white-900 text-dark px-4 pb-4 font-medium">
+        <a href="index.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Home</a>
+        <a href="profil.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Profil</a>
+        <a href="perumahan.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Perumahan Syariah</a>
+        <a href="artikel.html" class="block py-2 border-b border-gray-700 hover:text-green-400">Artikel</a>
+        <a href="contact.html" class="block py-2 hover:text-green-400">Contact</a>
+    </div>
+    </header>
+
+    <!-- Detail dan Simulasi -->
+    <div class="max-w-6xl mx-auto p-6 mt-10">
+    
+    <div id="detail" class="max-w-6xl mx-auto px-6 py-10 bg-white shadow-lg rounded-lg mt-4">
+        <!-- Konten detail rumah dari JS -->
+    </div>
+
+    <div id="detail-gallery" class="max-w-6xl mx-auto px-6 py-10 bg-white shadow-lg rounded-lg mt-4 mt-6">
+        <!-- Gallery akan diisi dari JS -->
+    </div>
+    <!-- Lightbox / Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
+    <span class="absolute top-4 right-6 text-white text-3xl cursor-pointer" onclick="closeLightbox()">&times;</span>
+    <div id="lightbox-content" class="max-w-4xl w-full px-4"></div>
+    </div>
+
+
+    <div id="detail-map" class="max-w-6xl mx-auto px-6 py-10 bg-white shadow-lg rounded-lg mt-4 mt-6">
+        <!-- Map akan diisi dari JS -->
+    </div>
+
+    <!-- simulasi -->
+    <div id="simulasiCicilan" class="mt-14 bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl border border-gray-200 shadow hidden">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">
+        💳 <span>Simulasi Cicilan</span>
+    </h2>
+
+    <!-- Pilih Unit -->
+    <div class="mb-6">
+        <label for="unitSelect" class="block mb-2 font-medium text-gray-700">Pilih Unit:</label>
+        <select id="unitSelect" class="w-full border border-gray-300 p-3 rounded-lg bg-white text-gray-700 shadow-sm focus:ring-blue-500 focus:border-blue-500" onchange="updateHarga()">
+        <option value="">-- Pilih Unit --</option>
+        </select>
+    </div>
+
+    <!-- Harga Rumah -->
+    <input id="hargaRumah" type="text" readonly class="w-full p-3 border border-gray-300 mb-6 rounded-lg bg-gray-100 text-gray-700 font-semibold shadow-sm" placeholder="Harga Rumah">
+
+    <!-- Input DP dan Tenor -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+        <label for="dpPersen" class="block mb-2 font-medium text-gray-700">DP (%)</label>
+        <input id="dpPersen" type="number" value="10" min="0" max="100" class="w-full border border-gray-300 p-3 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+        </div>
+        <div>
+        <label for="tenor" class="block mb-2 font-medium text-gray-700">Tenor</label>
+        <select id="tenor" class="w-full border border-gray-300 p-3 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500">
+        <option value="">-- Pilih Tenor --</option>
+        </select>
+        </div>
+    </div>
+
+    <!-- Tombol Hitung -->
+    <button onclick="hitungCicilan()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-md transition-all w-full md:w-auto">
+        Hitung Simulasi
+    </button>
+
+    <!-- Hasil -->
+    <div id="hasilSimulasi" class="mt-8 p-5 bg-white border border-gray-200 rounded-lg shadow hidden">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">Hasil Perhitungan:</h3>
+        <div class="space-y-2 text-gray-700">
+        <p><strong>DP:</strong> <span id="dpHasil"></span></p>
+        <p><strong>Sisa Hutang:</strong> <span id="sisaHutang"></span></p>
+        <p><strong>Angsuran per Bulan:</strong> <span id="angsuran"></span></p>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+    <!-- footer -->
+    <footer class="bg-gray-100 text-gray-800 py-12 px-6 mt-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+
+        <!-- Kiri: About Us + Follow Us (stacked) -->
+        <div class="space-y-8">
+        <!-- About Us -->
+        <div>
+            <h3 class="text-xl font-bold text-green-700 mb-4">About Us</h3>
+            <p class="text-gray-600">
+            Pondok Radja Syariah adalah hunian Islami tanpa riba, berdasarkan Al-Qur’an dan Sunnah. Hadirkan kenyamanan, keamanan, dan keberkahan dalam hidup Anda.
+            </p>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+            <h3 class="text-xl font-bold text-green-700 mb-4">Follow Us</h3>
+            <div class="flex space-x-4 mt-2">
+            <a href="https://www.facebook.com/propertiradjasyariahproperti" class="hover:text-green-600">
+                <img src="https://img.icons8.com/ios-filled/24/000000/facebook--v1.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/pondokradjasyariah.official/profilecard/?igsh=Zjd1azdtNTlnOXM=" class="hover:text-green-600">
+                <img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram">
+            </a>
+            <a href="https://t.me/kenangaresidence" class="hover:text-green-600">
+            <img src="https://img.icons8.com/ios-filled/24/000000/telegram-app.png" alt="Telegram">
+            </a>
+            </div>
+        </div>
+        </div>
+
+        <!-- Tengah: Contact -->
+        <div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Contact Us</h3>
+        <ul class="space-y-2 text-gray-600">
+            <li><strong>WhatsApp:</strong> +62 878-7461-3203</li>
+            <li><strong>Telp:</strong> +62 817-6412-036</li>
+            <li><strong>Email:</strong> pondokradjasyriah@gmail.com </li>
+            <li><strong>Alamat:</strong><br>Perumahan Ranco Indah, Jl Muara No 43, Rt 008/02, Tanjung Barat, Jagakarsa, Jakarta Selatan</li>
+        </ul>
+        </div>
+
+        <!-- Kanan: Maps -->
+        <div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Lokasi Kami</h3>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2159421378374!2d106.8271531!3d-6.237413799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f20db67b558f%3A0x2259d3264a2c71b6!2sJl.%20Muara%20No.43%2C%20RT.8%2FRW.2%2C%20Tj.%20Barat%2C%20Jagakarsa%2C%20Kota%20Jakarta%20Selatan!5e0!3m2!1sid!2sid!4v1683123456789!5m2!1sid!2sid"
+            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-10 text-gray-600 text-sm py-1">
+        <hr class="mb-4">
+        <p>© 2025 Pondok Radja Syariah. All rights reserved.</p>
+    </div>
+    </footer>
+
+    <!-- Tombol WhatsApp & Scroll to Top -->
+    <div class="fixed bottom-4 right-4 z-50 flex flex-col items-end space-y-3" id="buttonGroup">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/+628176412036" target="_blank"
+            class="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition">
+            <img src="https://img.icons8.com/ios-filled/30/ffffff/whatsapp.png" alt="WhatsApp" />
+        </a>
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTopBtn"
+            onclick="scrollToTop()"
+            class="hidden bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-800 transition">
+            ⬆️
+        </button>
+    </div>
+
+    <!-- Script wa & scroll-->
+    <script>
+        const scrollBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 100) {
+                scrollBtn.classList.remove("hidden");
+            } else {
+                scrollBtn.classList.add("hidden");
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+    <!-- Script untuk toggle detail -->
+    <script>
+    function toggleDetail(card) {
+        const detail = card.querySelector('.detail');
+        const hover = card.querySelector('.hover-card');
+        const isActive = card.classList.contains('active');
+
+        if (isActive) {
+        detail.classList.add('opacity-0', 'max-h-0');
+        card.classList.remove('active');
+        setTimeout(() => {
+            detail.classList.add('hidden');
+        }, 300);
+        } else {
+        detail.classList.remove('hidden');
+        hover.classList.add('hidden');
+        setTimeout(() => {
+            detail.classList.remove('opacity-0', 'max-h-0');
+        }, 10);
+        card.classList.add('active');
+        }
+    }
+    </script>
+
+    <script>
+    // Toggle Mobile Menu
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
+
+    // Navbar Hide on Scroll Down, Show on Scroll Up
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', function () {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop && currentScroll > 50) {
+        // Scroll Down
+        navbar.style.transform = 'translateY(-100%)';
+        } else {
+        // Scroll Up
+        navbar.style.transform = 'translateY(0)';
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+    </script>
+
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true, // animasi hanya sekali saat scroll pertama
+        });
+    </script>
+    <script>
+    // Data rumah
+    const rumahList = [
+        {
+            id: 1,
+            nama: "ADNAN NABILA REGENCY",
+            kategori: "rumah",
+            lokasi: "Jln. Bhakti ABRI RT 05/ RW 09 Kel. Sukamaju Baru, Kec. Tapos",
+            latitude: -6.752700, // <-- Tambahkan ini
+            longitude: 106.780800, // <-- Dan ini
+            harga: "Rp.500 juta hingga Rp.1,28 miliar",
+            gambar: "dokumen/ADNAN NABILA REGENCY.jpg",
+            deskripsi: "Perumahan hijau dengan fasilitas lengkap dan akses mudah ke tol serta transportasi umum.",
+            fasilitas: ["Keamanan 24 jam", "Dekat tol", "Lingkungan asri", "Dekat stasiun"],
+            units: [
+                { id: "A3", nama: "Unit A3", luasBangunan: 58, luasTanah: 84.74, hargaCash: 868359560, dp10: 86835956,tenors: [ { id: 5, label: "5 Tahun", angsuran: 18724003, nominalHutang: 1123440181 }, { id: 10, label: "10 Tahun", angsuran: 12732322, nominalHutang: 1527878646 } ] },
+                { id: "A4", nama: "Unit A4", luasBangunan: 82, luasTanah: 103, hargaCash: 925000000, dp10: 92500000, tenors: [ { id: 5, label: "5 Tahun", angsuran: 19945313, nominalHutang: 1196718750 }, { id: 10, label: "10 Tahun", angsuran: 13562813, nominalHutang: 1627537500 } ] },
+                { id: "C1A", nama: "Unit C1 A", luasBangunan: 60, luasTanah: 61, hargaCash: 607834000, dp10: 60783400, tenors: [ { id: 5, label: "5 Tahun", angsuran: 13106421, nominalHutang: 786385238 }, { id: 10, label: "10 Tahun", angsuran: 8912366, nominalHutang: 1069483923 } ] },
+                { id: "C1B", nama: "Unit C1 B", luasBangunan: 60, luasTanah: 56, hargaCash: 566864000, dp10: 56686400, tenors: [ { id: 5, label: "5 Tahun",  angsuran: 12223005, nominalHutang: 733380300 }, { id: 10, label: "10 Tahun", angsuran: 8311643, nominalHutang: 997397208 } ] },
+                { id: "B1", nama: "Unit B1", luasBangunan: 60, luasTanah: 73.6, hargaCash: 885392000, dp10: 88539200, tenors: [ { id: 5, label: "5 Tahun", angsuran: 19091265, nominalHutang: 1145475901 }, { id: 10, label: "10 Tahun", angsuran: 12982060, nominalHutang: 1557847224 } ] },
+                { id: "R3", nama: "Ruko R3", luasBangunan: 80, luasTanah: 60.17, hargaCash: 1288214060, dp10: 128821406, tenors: [ { id: 5, label: "5 Tahun", angsuran: 27777116, nominalHutang: 1666626940 }, { id: 10, label: "10 Tahun", angsuran: 13888558, nominalHutang: 1666626940 } ] }
+            ],
+            gambarDetail: [
+            { type: "image", src: "dokumen/ADNAN NABILA REGENCY.jpg" },
+            { type: "image", src: "dokumen/adnan 1.jpg" },
+            { type: "image", src: "dokumen/adnan 2.jpg" },
+            { type: "image", src: "dokumen/adnan 3.jpg" },
+            { type: "image", src: "dokumen/adnan 4.jpg" },
+            { type: "image", src: "dokumen/adnan 5.jpg" },
+            { type: "image", src: "dokumen/adnan 6.jpg" },
+            { type: "image", src: "dokumen/adnan 7.jpg" },
+            ],
+        },
+        {
+            id: 2,
+            nama: "RUKO BENTENG MADANI",
+            kategori: "ruko",
+            lokasi: "Jln. Benteng RT 004/RW 001 Kelurahan Tugujaya, Kec. Cigombong. Bogor ",
+            latitude: -6.387021, // <-- Tambahkan ini
+            longitude: 106.884788, // <-- Dan ini
+            harga: "Rp.200 juta hingga Rp.800 juta",
+            gambar: "dokumen/RUKO BENTENG MADANI.jpg",
+            deskripsi: "Ruko Benteng Madani menawarkan peluang emas bagi Anda yang ingin mengembangkan usaha di kawasan yang sedang berkembang pesat. Terletak di Jalan Benteng, Tugujaya, Kecamatan Cigombong, Kabupaten Bogor, ruko ini berada di area yang ramai dan dekat dengan berbagai fasilitas umum.",
+            fasilitas: ["okasi strategis dekat tol & kawasan industri", "Akses jalan besar, ramai dilalui kendaraan", "2 lantai, 2 kamar mandi", "Listrik & air tersedia", "Parkir depan ruko",],
+            units: [
+                { id: "A1", nama: "Unit A1", luasBangunan: 108, luasTanah: 110, hargaCash: 883218600, dp10: 88321860, tenors: [ { id: 5, label: "5 Tahun", angsuran: 19044401, nominalHutang: 1142664064 }, { id: 10, label: "10 Tahun", angsuran: 12950193, nominalHutang: 1554023127 } ] },
+                { id: "A2", nama: "Unit A2", luasBangunan: 108, luasTanah: 107, hargaCash: 876447000, dp10: 87644700, tenors: [ { id: 5, label: "5 Tahun", angsuran: 18898388, nominalHutang: 1133903306 }, { id: 10, label: "10 Tahun", angsuran: 12850904, nominalHutang: 1542108497 } ] },
+                { id: "A3", nama: "Unit A3", luasBangunan: 108, luasTanah: 106, hargaCash: 869729400, dp10: 86972940, tenors: [ { id: 5, label: "5 Tahun", angsuran: 18753540, nominalHutang: 1125212411 }, { id: 10, label: "10 Tahun", angsuran: 12752407, nominalHutang: 1530288879 } ] },
+                { id: "A4", nama: "Unit A4", luasBangunan: 108, luasTanah: 104, hargaCash: 863071000, dp10: 86307100, tenors: [ { id: 5, label: "5 Tahun", angsuran: 18609968, nominalHutang: 1116598108 }, { id: 10, label: "10 Tahun", angsuran: 12654779, nominalHutang: 1518573425 } ] },
+                { id: "A5", nama: "Unit A5", luasBangunan: 108, luasTanah: 104, hargaCash: 859906000, dp10: 85990600, tenors: [ { id: 5, label: "5 Tahun", angsuran: 18541723, nominalHutang: 1112503388 }, { id: 10, label: "10 Tahun", angsuran: 12608372, nominalHutang: 1513004607 } ] },
+                { id: "A6", nama: "Unit A6", luasBangunan: 108, luasTanah: 103, hargaCash: 861975000, dp10: 86197500, tenors: [ { id: 5, label: "5 Tahun", angsuran: 18586336, nominalHutang: 1115180156 }, { id: 10, label: "10 Tahun", angsuran: 12638708, nominalHutang: 1516645013 } ] },
+                { id: "A7", nama: "Unit A7", luasBangunan: 90, luasTanah: 95, hargaCash: 730404000, dp10: 73040400, tenors: [ { id: 5, label: "5 Tahun", angsuran: 15749336, nominalHutang: 944960175 }, { id: 10, label: "10 Tahun", angsuran: 10709549, nominalHutang: 1285145838 } ] },
+                { id: "B1", nama: "Unit B1", luasBangunan: 90, luasTanah: 84, hargaCash: 709668000, dp10: 70966800, tenors: [ { id: 5, label: "5 Tahun", angsuran: 15302216, nominalHutang: 918132975 }, { id: 10, label: "10 Tahun", angsuran: 10405507, nominalHutang: 1248660846 } ] },
+                { id: "B2", nama: "Unit B2", luasBangunan: 84, luasTanah: 78, hargaCash: 668088000, dp10: 66808800, tenors: [ { id: 5, label: "5 Tahun", angsuran: 14405648, nominalHutang: 864338850 }, { id: 10, label: "10 Tahun", angsuran: 9795840, nominalHutang: 1175500836 } ] },
+                { id: "C1", nama: "Kios C1", luasBangunan: 24, luasTanah: 29, hargaCash: 222220800, dp10: 22222080, tenors: [ { id: 5, label: "5 Tahun", angsuran: 4791636, nominalHutang: 287498160 }, { id: 10, label: "10 Tahun", angsuran: 3258312, nominalHutang: 390997498 } ] },
+                { id: "C2", nama: "Kios C2", luasBangunan: 41, luasTanah: 44, hargaCash: 320994900, dp10: 32099490, tenors: [ { id: 5, label: "5 Tahun", angsuran: 6921453, nominalHutang: 415287152 }, { id: 10, label: "10 Tahun", angsuran: 4706588, nominalHutang: 564790527 } ] }
+            ],
+            gambarDetail: [
+            { type: "image", src: "dokumen/27.jpg" },
+            { type: "image", src: "dokumen/28.jpg" },
+            { type: "image", src: "dokumen/27.jpg" },
+            ],
+        },
+        {
+            id: 3,
+            nama: "GRIYA RADJA PANCASAN ASRI",
+            kategori: "rumah",
+            lokasi: "Jln. Pancasan Baru rt 3/12 Kel. Pasir Jaya - Kec. Bogor Barat, Kota Bogor ",
+            latitude: -6.606982, // <-- Tambahkan ini
+            longitude: 106.791800, // <-- Dan ini
+            harga: "Rp.600 juta ",
+            gambar: "dokumen/asri.jpg",
+            deskripsi: "Griya Radja Pancasan Asri adalah perumahan nyaman dengan lingkungan yang asri dan tertata rapi. Berlokasi di kawasan Pancasan yang strategis, hunian ini cocok untuk keluarga maupun investasi properti.",
+            fasilitas: ["Akses mudah ke jalan utama dan transportasi umum", "Lingkungan aman dan bebas banjir", "Dekat dengan sekolah, pasar, dan pusat kota", "Suasana tenang dan cocok untuk tempat tinggal jangka panjang", "keamanan 24 jam dengan sistem CCTV"],
+            units: [
+                { id: "B1", nama: "Unit B1", luasBangunan: 56, luasTanah: 83.54, hargaCash: 605720631, dp10: 60572063, tenors: [{ id: 5, label: "5 Tahun", angsuran: 13060851, nominalHutang: 783651067 }, { id: 10, label: "10 Tahun", angsuran: 8881379, nominalHutang: 1065765450 }] }
+            ],
+            gambarDetail: [
+            { type: "image", src: "dokumen/asri 2.jpg" },
+            { type: "image", src: "dokumen/asri 1.jpg" },
+            { type: "image", src: "dokumen/asri.jpg" },
+            ],
+        },
+        {
+            id: 4,
+            nama: "ABDURRAHMAN ADININTIA REGENCY",
+            kategori: "rumah",
+            lokasi: "Jln. Raya Cibeureum Rt 001/011 Mulyaharja - Bogor Selatan, Kota Bogor",
+            latitude: -6.6486, // <-- Tambahkan ini
+            longitude: 106.8123, // <-- Dan ini
+            harga: "Rp.400 juta hingga Rp.800 juta ",
+            gambar: "dokumen/36.jpg",
+            deskripsi: "Perumahan Abdurrahman Adinintia Regency menawarkan lingkungan yang nyaman dan asri di lokasi strategis. Cocok untuk keluarga yang menginginkan hunian tenang namun tetap dekat dengan pusat kota dan fasilitas umum.",
+            fasilitas: ["Akses jalan utama yang mudah", "Lingkungan aman dan tertata", "Dekat sekolah, pusat perbelanjaan, dan transportasi umum", "Cocok untuk investasi jangka panjang maupun tempat tinggal", "Keamanan 24 jam dengan sistem CCTV"],
+            units: [
+            {id:"A1",nama:"Unit A1",luasBangunan:60,luasTanah:115,hargaCash:670500000,dp30:243000000,tenors:[{id:1,label:"1 Tahun",angsuran:18821250,nominalHutang:677565000},{id:3,label:"3 Tahun",angsuran:12757500,nominalHutang:765450000},{id:5,label:"5 Tahun",angsuran:12757500,nominalHutang:765450000}]},
+            {id:"A2",nama:"Unit A2",luasBangunan:60,luasTanah:81,hargaCash:627480000,dp30:188244000,tenors:[{id:1,label:"1 Tahun",angsuran:1450195,nominalHutang:524007020},{id:3,label:"3 Tahun",angsuran:9502810,nominalHutang:592968600},{id:5,label:"5 Tahun",angsuran:9502810,nominalHutang:592968600}]},
+            {id:"A3",nama:"Unit A3",luasBangunan:60,luasTanah:81,hargaCash:627480000,dp30:188244000,tenors:[{id:1,label:"1 Tahun",angsuran:14580195,nominalHutang:824807020},{id:3,label:"3 Tahun",angsuran:9802010,nominalHutang:592968600},{id:5,label:"5 Tahun",angsuran:9802010,nominalHutang:592968600}]},
+            {id:"A4",nama:"Unit A4",luasBangunan:60,luasTanah:81,hargaCash:624480000,dp30:187344000,tenors:[{id:1,label:"1 Tahun",angsuran:14510487,nominalHutang:522377520},{id:3,label:"3 Tahun",angsuran:9835500,nominalHutang:590133600},{id:5,label:"5 Tahun",angsuran:9835500,nominalHutang:590133600}]},
+            {id:"B1",nama:"Unit B1",luasBangunan:36,luasTanah:60,hargaCash:569400000,dp30:170820000,tenors:[{id:1,label:"1 Tahun",angsuran:13230642,nominalHutang:476303100},{id:3,label:"3 Tahun",angsuran:8968050,nominalHutang:538083000},{id:5,label:"5 Tahun",angsuran:8968050,nominalHutang:538083000}]},
+            {id:"B2",nama:"Unit B2",luasBangunan:36,luasTanah:60,hargaCash:435000000,dp30:130500000,tenors:[{id:1,label:"1 Tahun",angsuran:10107708,nominalHutang:363877500},{id:3,label:"3 Tahun",angsuran:6851250,nominalHutang:411075000},{id:5,label:"5 Tahun",angsuran:6851250,nominalHutang:411075000}]},
+            {id:"B3",nama:"Unit B3",luasBangunan:36,luasTanah:60,hargaCash:435000000,dp30:130500000,tenors:[{id:1,label:"1 Tahun",angsuran:10107708,nominalHutang:363877500},{id:3,label:"3 Tahun",angsuran:6851250,nominalHutang:411075000},{id:5,label:"5 Tahun",angsuran:6851250,nominalHutang:411075000}]},
+            {id:"B4",nama:"Unit B4",luasBangunan:36,luasTanah:60,hargaCash:435000000,dp30:130500000,tenors:[{id:1,label:"1 Tahun",angsuran:10107708,nominalHutang:363877500},{id:3,label:"3 Tahun",angsuran:6851250,nominalHutang:411075000},{id:5,label:"5 Tahun",angsuran:6851250,nominalHutang:411075000}]}  
+            ],
+            gambarDetail: [
+            { type: "image", src: "dokumen/37.jpg" },
+            { type: "video", src: "dokumen/ABDURRAHMAN ADININTIA REGENCY.mp4" },
+            { type: "image", src: "dokumen/ABDURRAHMAN ADININTIA.jpg" },
+            { type: "image", src: "dokumen/38.jpg" },
+            { type: "image", src: "dokumen/39.jpg" },
+            { type: "image", src: "dokumen/40.jpg" },
+            { type: "image", src: "dokumen/36.jpg" },
+            ],
+        },
+        {
+            id: 5,
+            nama: "Ruko cilodong",
+            kategori: "ruko",
+            lokasi: "Jln. M Nasir No 70 Rt 008/001 Cilodong Depok",
+            latitude: -6.434686, // <-- Tambahkan ini
+            longitude: 106.848861, // <-- Dan ini
+            harga: "Rp.1 miliar hingga Rp.1,5 miliar",
+            gambar: "dokumen/23.jpg",
+            deskripsi: "Dengan akses mudah dari berbagai arah dan berada di tengah area padat penduduk, ruko ini sangat cocok untuk berbagai jenis usaha seperti toko retail, kantor, atau jasa layanan. Lingkungan sekitar yang ramai dan berkembang pesat menjadikan tempat ini pilihan tepat untuk mengembangkan bisnis Anda.",
+            fasilitas: ["Lokasi strategis dan mudah dijangkau", "Parkir luas dan aman", "Listrik, air, dan internet siap pakai", "Lingkungan ramai dan cocok untuk berbagai usaha"],
+            units: [
+            {id:"KAV1",nama:"Ruko Cilodong Kavling 1",luasBangunan:91,luasTanah:88,hargaCash:1547500000,dp30:0,tenors:[{id:2,label:"2 Tahun",angsuran:72216667,nominalHutang:1733200000}]},
+            {id:"KAV2",nama:"Ruko Cilodong Kavling 2",luasBangunan:66,luasTanah:66,hargaCash:null,dp30:null,tenors:[]},
+            {id:"KAV3",nama:"Ruko Cilodong Kavling 3",luasBangunan:84,luasTanah:78,hargaCash:1380000000,dp30:0,tenors:[{id:2,label:"2 Tahun",angsuran:64400000,nominalHutang:1545600000}]}
+            ],
+            gambarDetail: [
+            { type: "video", src: "dokumen/ruko cilodong.mp4" },
+            { type: "image", src: "dokumen/ruko cilodong2.jpg" },
+            { type: "image", src: "dokumen/ruko cilodong 41.jpg" },
+            { type: "image", src: "dokumen/41.jpg" },
+            ],
+        },
+        {
+            id: 6,
+            nama: "Cluster Griya Nabawi",
+            kategori: "ruko",
+            lokasi: "Jln. Tirta Mulya 5 RT 9 RW 3, Kelurahan Tirtajaya, Kecamatan Sukmajaya, Kota Depok, Jawa Barat ",
+            latitude: -6.3911, // <-- Tambahkan ini
+            longitude: 106.8346, // <-- Dan ini
+            harga: "Rp.400 juta hingga Rp.800 juta ",
+            gambar: "dokumen/griya nabawi.jpg",
+            deskripsi: "RUMAH MILENIAL READY STOK yang dekat dengan beberapa WISATA bogor - the jungle water park - the voyage bogor - kebun raya bogor  - Hotel Aston bogor - Surya Kencana Street Food Bogor",
+            fasilitas: ["One gate system & keamanan 24 jam", "Masjid dalam cluster", "Jalan lingkungan lebar dan rapi", "Dekat sekolah, pasar, dan transportasi umum", "Lingkungan asri dan bebas banjir"],
+            units: [
+            {id:"A1",nama:"Cluster Griya Nabawi Kavling A1",luasBangunan:null,luasTanah:null,hargaCash:null,dp10:null,tenors:[]},
+            {id:"A2",nama:"Cluster Griya Nabawi Kavling A2",luasBangunan:null,luasTanah:null,hargaCash:null,dp10:null,tenors:[]},
+            {id:"A3",nama:"Cluster Griya Nabawi Kavling A3",luasBangunan:70,luasTanah:69.12,hargaCash:974694180,dp10:97469180,tenors:[{id:5,label:"5 Tahun",angsuran:9868778,nominalHutang:292408325},{id:10,label:"10 Tahun",angsuran:7675718,nominalHutang:292408325}]},
+            {id:"A4",nama:"Cluster Griya Nabawi Kavling A4",luasBangunan:70,luasTanah:69.12,hargaCash:974694180,dp10:97469180,tenors:[{id:5,label:"5 Tahun",angsuran:9868778,nominalHutang:292408325},{id:10,label:"10 Tahun",angsuran:7675719,nominalHutang:292408325}]},
+            {id:"A5",nama:"Cluster Griya Nabawi Kavling A5",luasBangunan:70,luasTanah:69.12,hargaCash:974694180,dp10:97469180,tenors:[{id:5,label:"5 Tahun",angsuran:9868778,nominalHutang:292408325},{id:10,label:"10 Tahun",angsuran:7675719,nominalHutang:292408325}]},
+            {id:"A1",nama:"Kavling Cluster Griya Nabawi A1",luasBangunan:null,luasTanah:null,hargaCash:null,dp10:null,tenors:[]},
+            {id:"A2",nama:"Kavling Cluster Griya Nabawi A2",luasBangunan:null,luasTanah:null,hargaCash:null,dp10:null,tenors:[]},
+            {id:"A3",nama:"Kavling Cluster Griya Nabawi A3",luasBangunan:0,luasTanah:69.12,hargaCash:729694180,dp10:72969418,tenors:[{id:5,label:"5 Tahun",angsuran:7388156,nominalHutang:218908254},{id:10,label:"10 Tahun",angsuran:11492688,nominalHutang:218908254}]},
+            {id:"A4",nama:"Kavling Cluster Griya Nabawi A4",luasBangunan:0,luasTanah:69.12,hargaCash:729694180,dp10:72969418,tenors:[{id:5,label:"5 Tahun",angsuran:7388156,nominalHutang:218908254},{id:10,label:"10 Tahun",angsuran:11492689,nominalHutang:218908254}]},
+            {id:"A5",nama:"Kavling Cluster Griya Nabawi A5",luasBangunan:0,luasTanah:69.12,hargaCash:729694180,dp10:72969418,tenors:[{id:5,label:"5 Tahun",angsuran:7388156,nominalHutang:218908254},{id:10,label:"10 Tahun",angsuran:11492689,nominalHutang:218908254}]}
+            ],
+            gambarDetail: [
+            { type: "image", src: "dokumen/griya nabawi.jpg" },
+            { type: "video", src: "dokumen/4.mp4" },
+            { type: "image", src: "dokumen/21.jpg" },
+            { type: "image", src: "dokumen/22.jpg" },
+            { type: "image", src: "dokumen/19.jpg" },
+            { type: "image", src: "dokumen/20.jpg" },
+            { type: "image", src: "dokumen/18.jpg" },
+            { type: "image", src: "dokumen/16.jpg" },
+            ],
+        },
+        {
+            id: 7,
+            nama: "Cluster Grahamas kenanga",
+            kategori: "Rumah",
+            lokasi: "Jln. Raya Cibeureum RT 001/RW 011, Kelurahan Mulyaharja, Kecamatan Bogor Selatan, Kota Bogor",
+            latitude: -6.6431, // <-- Tambahkan ini
+            longitude: 106.7884, // <-- Dan ini
+            harga: "Rp.439 juta ",
+            gambar: "dokumen/1.jpg",
+            deskripsi: "perumahan syariah yang menawarkan hunian nyaman dan aman dengan konsep one gate system. cluster ini cocok bagi keluarga yang menginginkan lingkungan yang tenang dan bebas banjir.",
+            fasilitas: ["Keamanan 24 Jam", "Lingkungan Bebas Banjir", "One Gate System", "Desain Modern dan Fungsional", "Dekat dengan Fasilitas Umum"],
+            units: [
+            {id:"A1",nama:"Kavling Grahamas Kenanga A1",luasBangunan:45,luasTanah:101,hargaCash:445520000,dp10:44552000,tenors:[{id:5,label:"5 Tahun",angsuran:7276827,nominalHutang:436609620},{id:10,label:"10 Tahun",angsuran:4677960,nominalHutang:561355200}]},
+            {id:"A2",nama:"Kavling Grahamas Kenanga A2",luasBangunan:45,luasTanah:90,hargaCash:439360000,dp10:43936000,tenors:[{id:5,label:"5 Tahun",angsuran:7161133,nominalHutang:429668040},{id:10,label:"10 Tahun",angsuran:4601643,nominalHutang:552197160}]},
+            {id:"A3",nama:"Kavling Grahamas Kenanga A3",luasBangunan:45,luasTanah:90,hargaCash:439360000,dp10:43936000,tenors:[{id:5,label:"5 Tahun",angsuran:7161133,nominalHutang:429668040},{id:10,label:"10 Tahun",angsuran:4601643,nominalHutang:552197160}]},
+            {id:"A4",nama:"Kavling Grahamas Kenanga A4",luasBangunan:45,luasTanah:90,hargaCash:439360000,dp10:43936000,tenors:[{id:5,label:"5 Tahun",angsuran:7161133,nominalHutang:429668040},{id:10,label:"10 Tahun",angsuran:4601643,nominalHutang:552197160}]},
+            {id:"A5",nama:"Kavling Grahamas Kenanga A5",luasBangunan:45,luasTanah:91,hargaCash:439360000,dp10:43936000,tenors:[{id:5,label:"5 Tahun",angsuran:7161133,nominalHutang:429668040},{id:10,label:"10 Tahun",angsuran:4601643,nominalHutang:552197160}]},
+            {id:"A6",nama:"Kavling Grahamas Kenanga A6",luasBangunan:45,luasTanah:91,hargaCash:439360000,dp10:43936000,tenors:[{id:5,label:"5 Tahun",angsuran:7161133,nominalHutang:429668040},{id:10,label:"10 Tahun",angsuran:4601643,nominalHutang:552197160}]},
+            {id:"A7",nama:"Kavling Grahamas Kenanga A7",luasBangunan:45,luasTanah:91,hargaCash:439360000,dp10:43936000,tenors:[{id:5,label:"5 Tahun",angsuran:7161133,nominalHutang:429668040},{id:10,label:"10 Tahun",angsuran:4601643,nominalHutang:552197160}]},
+            {id:"B1",nama:"Kavling Grahamas Kenanga B1",luasBangunan:45,luasTanah:91,hargaCash:439360000,dp10:43936000,tenors:[{id:5,label:"5 Tahun",angsuran:7161133,nominalHutang:429668040},{id:10,label:"10 Tahun",angsuran:4601643,nominalHutang:552197160}]},
+            {id:"B2",nama:"Kavling Grahamas Kenanga B2",luasBangunan:45,luasTanah:91,hargaCash:439360000,dp10:43936000,tenors:[{id:5,label:"5 Tahun",angsuran:7161133,nominalHutang:429668040},{id:10,label:"10 Tahun",angsuran:4601643,nominalHutang:552197160}]},
+            {id:"B3",nama:"Kavling Grahamas Kenanga B3",luasBangunan:45,luasTanah:91,hargaCash:439360000,dp10:43936000,tenors:[{id:5,label:"5 Tahun",angsuran:7161133,nominalHutang:429668040},{id:10,label:"10 Tahun",angsuran:4601643,nominalHutang:552197160}]},
+            {id:"B4",nama:"Kavling Grahamas Kenanga B4",luasBangunan:45,luasTanah:91,hargaCash:439360000,dp10:43936000,tenors:[{id:5,label:"5 Tahun",angsuran:7161133,nominalHutang:429668040},{id:10,label:"10 Tahun",angsuran:4601643,nominalHutang:552197160}]},
+            {id:"B5",nama:"Kavling Grahamas Kenanga B5",luasBangunan:45,luasTanah:91,hargaCash:439360000,dp10:43936000,tenors:[{id:5,label:"5 Tahun",angsuran:7161133,nominalHutang:429668040},{id:10,label:"10 Tahun",angsuran:4601643,nominalHutang:552197160}]},
+            {id:"B6",nama:"Kavling Grahamas Kenanga B6",luasBangunan:45,luasTanah:91,hargaCash:439360000,dp10:43936000,tenors:[{id:5,label:"5 Tahun",angsuran:7161133,nominalHutang:429668040},{id:10,label:"10 Tahun",angsuran:4601643,nominalHutang:552197160}]},
+            {id:"B7",nama:"Kavling Grahamas Kenanga B7",luasBangunan:45,luasTanah:91,hargaCash:439360000,dp10:43936000,tenors:[{id:5,label:"5 Tahun",angsuran:7161133,nominalHutang:429668040},{id:10,label:"10 Tahun",angsuran:4601643,nominalHutang:552197160}]}
+            ],
+            gambarDetail: [
+            { type: "image", src: "dokumen/1.jpg" },
+            { type: "image", src: "dokumen/8.jpg" },
+            { type: "image", src: "dokumen/11.jpg" },
+            { type: "image", src: "dokumen/12.jpg" },
+            { type: "image", src: "dokumen/13.jpg" },
+            { type: "image", src: "dokumen/10.jpg" },
+            ],
+        }
+    ];
+
+    // Ambil ID dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = parseInt(urlParams.get('id'));
+    const rumah = rumahList.find(r => r.id === id);
+
+    // Elemen-elemen HTML
+    const detailEl = document.getElementById('detail');
+    const simulasiEl = document.getElementById('simulasiCicilan');
+    const unitSelect = document.getElementById('unitSelect');
+    const hargaRumahInput = document.getElementById('hargaRumah');
+    const dpPersenInput = document.getElementById('dpPersen');
+    const tenorSelect = document.getElementById('tenor');
+    const hasilSimulasiEl = document.getElementById('hasilSimulasi');
+    const dpHasilEl = document.getElementById('dpHasil');
+    const sisaHutangEl = document.getElementById('sisaHutang');
+    const angsuranEl = document.getElementById('angsuran');
+
+    // Format rupiah
+    function formatRupiah(angka) {
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(angka);
+    }
+
+    // Update harga rumah saat unit dipilih
+    function updateHarga() {
+    const unitId = unitSelect.value;
+    const unit = rumah.units.find(u => u.id === unitId);  // Ganti rumahList[0] dengan rumah
+    hargaRumahInput.value = unit ? formatRupiah(unit.hargaCash) : '';
+    tenorSelect.innerHTML = '<option value="">-- Pilih Tenor --</option>';
+    if (unit?.tenors?.length) {
+        unit.tenors.forEach(t => {
+        const option = document.createElement("option");
+        option.value = t.id;
+        option.textContent = t.label;
+        tenorSelect.appendChild(option);
+        });
+    }
+    }
+
+    // Hitung cicilan
+    function hitungCicilan() {
+    const unitId = unitSelect.value;
+    const tenorId = parseInt(tenorSelect.value);
+    const dpPersen = parseFloat(dpPersenInput.value);
+    const unit = rumah.units.find(u => u.id === unitId);  // Ganti rumahList[0] dengan rumah
+    const tenorData = unit?.tenors?.find(t => t.id === tenorId);
+    if (!unit || !tenorData || isNaN(dpPersen)) {
+        alert("Pastikan semua pilihan sudah diisi dengan benar!");
+        return;
+    }
+    const dp = unit.hargaCash * (dpPersen / 100);
+    dpHasilEl.innerText = formatRupiah(dp);
+    sisaHutangEl.innerText = formatRupiah(tenorData.nominalHutang);
+    angsuranEl.innerText = formatRupiah(tenorData.angsuran);
+    hasilSimulasiEl.classList.remove("hidden");
+    }
+
+    // Update harga rumah saat unit dipilih
+    function updateHarga() {
+    const unitId = unitSelect.value;
+    const unit = rumah.units.find(u => u.id === unitId);  // Ganti rumahList[0] dengan rumah
+
+    hargaRumahInput.value = unit ? formatRupiah(unit.hargaCash) : '';
+    tenorSelect.innerHTML = '<option value="">-- Pilih Tenor --</option>';
+
+    if (unit?.tenors?.length) {
+        unit.tenors.forEach(t => {
+        const option = document.createElement("option");
+        option.value = t.id;
+        option.textContent = t.label;
+        tenorSelect.appendChild(option);
+        });
+    }
+    }
+
+    // Hitung cicilan
+    function hitungCicilan() {
+    const unitId = unitSelect.value;
+    const tenorId = parseInt(tenorSelect.value);
+    const dpPersen = parseFloat(dpPersenInput.value);
+
+    const unit = rumah.units.find(u => u.id === unitId);  // Ganti rumahList[0] dengan rumah
+    const tenorData = unit?.tenors?.find(t => t.id === tenorId);
+
+    if (!unit || !tenorData || isNaN(dpPersen)) {
+        alert("Pastikan semua pilihan sudah diisi dengan benar!");
+        return;
+    }
+
+    const dp = unit.hargaCash * (dpPersen / 100);
+    dpHasilEl.innerText = formatRupiah(dp);
+    sisaHutangEl.innerText = formatRupiah(tenorData.nominalHutang);
+    angsuranEl.innerText = formatRupiah(tenorData.angsuran);
+
+    hasilSimulasiEl.classList.remove("hidden");
+    }
+
+    // ambil kategori dari rumah
+    function getLabelKategori(kategori) {
+    switch (kategori) {
+        case "ruko":
+        return "Ruko";
+        case "rumah":
+        return "Perumahan";
+        case "apartemen":
+        return "Apartemen";
+        case "kost":
+        return "Kost Eksklusif";
+        default:
+        return "Lainnya";
+    }
+    }
+
+
+    // Tampilkan detail rumah
+    if (rumah) {
+        // Fasilitas
+        const fasilitasHTML = rumah.fasilitas.map(f => `
+            <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✔</span> ${f}</li>
+        `).join("");
+
+        // Unit tersedia
+        const unitsHTML = rumah.units.map(unit => `
+            <li class="flex justify-between text-sm text-gray-800 border-b py-1">
+                <span>${unit.nama}</span>
+                <span class="text-blue-600 font-medium">${formatRupiah(unit.hargaCash || unit.harga)}</span>
+            </li>
+        `).join("");
+
+        const labelKategori = getLabelKategori(rumah.kategori);
+        detailEl.innerHTML = `
+        <!-- Grid atas: Gambar dan Detail Singkat -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Gambar -->
+            <div class="relative rounded-lg overflow-hidden shadow-lg">
+                <img src="${rumah.gambar}" alt="Foto rumah ${rumah.nama}" class="w-full h-80 object-contain bg-white rounded-md transition-transform duration-300 hover:scale-105">
+                <span class="absolute top-4 left-4 bg-white bg-opacity-90 px-3 py-1 rounded-full text-xs font-semibold text-gray-800 shadow-md select-none">
+                    ${labelKategori}
+                </span>
+            </div>
+
+            <!-- Detail singkat -->
+            <div class="flex flex-col justify-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-2">${rumah.nama}</h2>
+                <p class="text-sm text-gray-600 mb-2 flex items-center gap-2">
+                    📍 ${rumah.lokasi}
+                </p>
+                <p class="text-2xl font-bold text-green-700 mb-4">${rumah.harga}</p>
+                <p class="text-gray-700 leading-relaxed">${rumah.deskripsi}</p>
+            </div>
+        </div>
+
+        <!-- Bagian bawah: Fasilitas -->
+        <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2 mt-3">
+                🏡 Fasilitas
+            </h3>
+            <ul class="grid grid-cols-2 md:grid-cols-3 gap-2 text-gray-700 text-sm list-disc list-inside">
+                ${rumah.fasilitas.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+        </div>
+
+        <!-- Bagian bawah: Unit Tersedia -->
+        <div class="overflow-x-auto mt-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                📋 Unit Tersedia
+            </h3>
+            <table class="min-w-full border text-sm text-gray-700 bg-white rounded-lg overflow-hidden shadow">
+                <thead class="bg-gray-100 text-left">
+                    <tr>
+                        <th class="px-4 py-2 border">Nama Unit</th>
+                        <th class="px-4 py-2 border text-center">Luas Bangunan (m²)</th>
+                        <th class="px-4 py-2 border text-center">Luas Tanah (m²)</th>
+                        <th class="px-4 py-2 border">Harga Cash</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${rumah.units.map(unit => `
+                        <tr class="border-t hover:bg-gray-50">
+                            <td class="px-4 py-2 border font-semibold">${unit.nama}</td>
+                            <td class="px-4 py-2 border text-center font-bold ${
+                                unit.luasBangunan === null ? 'text-red-600' : ''
+                            }">
+                                ${unit.luasBangunan === null ? 'SOLD' : unit.luasBangunan}
+                            </td>
+                            <td class="px-4 py-2 border text-center font-bold ${
+                                unit.luasTanah === null ? 'text-red-600' : ''
+                            }">
+                                ${unit.luasTanah === null ? 'SOLD' : unit.luasTanah}
+                            </td>
+                            <td class="px-4 py-2 border text-center font-bold ${
+                                unit.hargaCash === null ? 'text-red-600' : 'text-green-600'
+                            }">
+                                ${unit.hargaCash === null ? 'SOLD' : formatRupiah(unit.hargaCash)}
+                            </td>
+                        </tr>
+                    `).join("")}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Persyaratan Kredit & Tata Cara Kredit -->
+        <div class="mt-8 space-y-6">
+            <div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">📑 Persyaratan Kredit</h3>
+                <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                    <li>FC KTP Suami & Istri</li>
+                    <li>FC KK</li>
+                    <li>Surat Nikah</li>
+                    <li>Slip gaji 3 bulan terakhir</li>
+                    <li>Rekening koran 3 bulan terakhir</li>
+                    <li>Surat Ket Kerja/SK PNS</li>
+                    <li>NPWP</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">📝 Tata Cara Kredit</h3>
+                <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                    <li>Booking Fee sebesar <strong>Rp 5.000.000,-</strong> ke Rek <strong>BSI 7134551032 a.n. Anton Fauzi Rorimpandey</strong></li>
+                    <li>Harga sudah termasuk: SHM, IMB, BPBB</li>
+                    <li>Harga belum termasuk: Biaya Notaris (AJB, BN), BPHTB (Pajak), APHT, Asuransi</li>
+                    <li>Apabila plafon kredit lebih rendah disetujui bank, maka konsumen wajib menambahkan DP</li>
+                </ul>
+            </div>
+        </div>
+        `;
+
+        // Isi gallery foto dan video
+        const detailGallery = document.getElementById("detail-gallery");
+        detailGallery.innerHTML = `
+            <h3 class="font-semibold mb-3">📸 Foto / Video Lainnya</h3>
+            <div id="media-gallery" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                ${rumah.gambarDetail.map((item, index) => {
+                    if (item.type === "image") {
+                        return `
+                        <a href="${item.src}" class="glightbox" data-gallery="rumah-gallery">
+                            <img 
+                                src="${item.src}" 
+                                alt="Foto detail rumah" 
+                                class="rounded-lg object-contain h-40 w-full bg-white border shadow-md cursor-pointer" />
+                        </a>
+                        `;
+                    } else if (item.type === "video") {
+                        return `
+                        <a href="${item.src}" class="glightbox" data-gallery="rumah-gallery" data-type="video">
+                            <video 
+                                class="rounded-lg w-full h-40 object-contain bg-black border shadow-md cursor-pointer" autoplay muted loop playsinline>
+                                <source src="${item.src}" type="video/mp4">
+                            </video>
+                        </a>
+                        `;
+                    }
+                }).join('')}
+            </div>
+        `;
+
+        const lightbox = GLightbox({
+            selector: '.glightbox',
+            touchNavigation: true,
+            loop: true,
+            zoomable: true,
+        });
+
+        // Isi maps
+        const detailMap = document.getElementById("detail-map");
+        detailMap.innerHTML = `
+            <h3 class="font-semibold mb-3">🗺️ Lokasi di Peta</h3>
+            <iframe
+                width="100%"
+                height="380"
+                style="border:0"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=${rumah.latitude},${rumah.longitude}&hl=id&z=16&output=embed">
+            </iframe>
+        `;
+
+        // Dropdown unit simulasi
+        rumah.units.forEach(unit => {
+            const option = document.createElement('option');
+            option.value = unit.id;
+            option.textContent = unit.nama;
+            unitSelect.appendChild(option);
+        });
+
+        simulasiEl.classList.remove('hidden');
+    } else {
+        detailEl.innerHTML = `
+            <div class="text-center py-20">
+                <h2 class="text-xl font-bold text-red-600">Rumah tidak ditemukan</h2>
+                <p class="text-gray-500">Periksa URL atau kembali ke halaman utama.</p>
+                <a href="perumahan.html" class="text-blue-600 hover:underline mb-4 inline-block">&larr; Kembali</a>
+            </div>
+        `;
+    }
+    </script>
+
+
+</body>
+</html>
